@@ -90,6 +90,20 @@ print(f"I am inviting {len(guestlist)} to my dinner party.")
 
 #3-10. Every Function: Think of things you could store in a list. For example, you could make a list of mountains, rivers, countries, cities, languages, or anything else you’d like. Write a program that creates a list containing these items and then uses each function introduced in this chapter at least once.
 
+languages: list = ["Italian", "Portuguese", "Japanese", "Chinese"]
+print(languages)
+languages.append("Korean")
+print(languages)
+languages.pop(2)
+print(languages)
+languages.remove("Chinese")
+print(languages)
+print(sorted(languages))
+print(languages)
+languages.sort(reverse=True)
+print(languages)
+languages.insert(1, "English")
+print(languages)
 
 #6-1. Person: Use a dictionary to store information about a person you know. Store their first name, last name, age, and the city in which they live. You should have keys such as first_name, last_name, age, and city. Print each piece of information stored in your dictionary.
 
@@ -107,7 +121,18 @@ favourite_numbers: dict = {"Alessandra": 17,
                            "Elena": 7,
                            "Marco": 3,
                            "Andrea": 9,
-                           "Giada": 5}
+                           "Giada": 15}
+for key in favourite_numbers:
+    print(f"Person: {key}, favourite number: {favourite_numbers[key]}")
+
+
+#6-10. Favorite Numbers: Modify your program from Exercise 6-2 so each person can have more than one favorite number. Then print each person’s name along with their favorite numbers.
+
+favourite_numbers.update({"Alessandra": [17, 4]})
+favourite_numbers.update({"Elena": [7, 3]})
+favourite_numbers.update({"Marco": [3, 18]})
+favourite_numbers.update({"Andrea": [9, 27]})
+favourite_numbers.update({"Giada": [15, 8]})
 for key in favourite_numbers:
     print(f"Person: {key}, favourite number: {favourite_numbers[key]}")
 
@@ -160,10 +185,20 @@ for key in favourite_places:
     print(f"{key}: {favourite_places[key]}")
 
 
-#6-10. Favorite Numbers: Modify your program from Exercise 6-2 so each person can have more than one favorite number. Then print each person’s name along with their favorite numbers.
-
-
 #6-11. Cities: Make a dictionary called cities. Use the names of three cities as keys in your dictionary. Create a dictionary of information about each city and include the country that the city is in, its approximate population, and one fact about that city. The keys for each city’s dictionary should be something like country, population, and fact. Print the name of each city and all of the information you have stored about it.
-
+rome: dict = {"country": "Italy",
+              "population": "2.873 million people",
+              "fact": "its birthday is on April 21st"}
+madrid: dict = {"country": "Spain",
+              "population": "3.223 million people",
+              "fact": "its official symbol is a bear"}
+amsterdam: dict = {"country": "Netherlands",
+              "population": "821.752 people",
+              "fact": "it has more bicycles than people"}
+cities: dict = {"Rome": rome,
+                "Madrid": madrid,
+                "Amsterdam": amsterdam}
+for key in cities:
+    print(f"{key}: {cities[key]}")
 
 #6-12. Extensions: We’re now working with examples that are complex enough that they can be extended in any number of ways. Use one of the example programs from this chapter, and extend it by adding new keys and values, changing the context of the program, or improving the formatting of the output.
