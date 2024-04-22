@@ -102,10 +102,8 @@ Restituisce True se è palindroma, altrimenti False
 def funz_palindromo(s: str) -> bool:
     i = 0
     y = -1
-    flag = 0
     while i <= len(s)/2:
         if s[i] == s[y]:
-            flag = 0
             i += 1
             y -= 1
         else:
