@@ -115,7 +115,4 @@ def funz_palindromo(s: str) -> bool:
 frase: str = "Amo Roma"
 frase: str = frase.lower().replace(" ", "")
 palindromo: bool = funz_palindromo(frase)
-if palindromo == True:
-    print("True")
-else:
-    print("False")
+print(palindromo)
