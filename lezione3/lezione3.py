@@ -75,7 +75,10 @@ print(cubes2)
     #• Print the message "Three items from the middle of the list are:". Then use a slice to print three items from the middle of the list.
     #• Print the message "The last three items in the list are:". Then use a slice to print the last three items in the list.
 
-
+#using code from 4-9
+print(f"The first three items in the list are: {cubes2[0:3]}")
+print(f"Three items from the middle of the list are: {cubes2[(len(cubes2)//2)-1:(len(cubes2)//2)+2]}")
+print(f"The first three items in the list are: {cubes2[-3:]}")
 
 #4-11. My Pizzas, Your Pizzas: Start with your program from Exercise 4-1. Make a copy of the list of pizzas, and call it friend_pizzas. Then, do the following:
     #• Add a new pizza to the original list.
@@ -91,7 +94,7 @@ for i in range(len(pizzas)):
 print("My friend's favourite pizzas are: ")
 for i in range(len(friend_pizzas)):
     print(friend_pizzas[i])
-    
+
 #4-12. More Loops: All versions of foods.py in this section have avoided using for loops when printing, to save space. Choose a version of foods.py, and write two for loops to print each list of foods.
 
 
