@@ -151,11 +151,32 @@ for i in range(len(friend_pizzas)):
     print(friend_pizzas[i])
 
 
-#5-1. Conditional Tests: Write a series of conditional tests. Print a statement describing each test and your prediction for the results of each test. Your code should look something like this: car = 'subaru' print("Is car == 'subaru'? I predict True.") print(car == 'subaru') print("\nIs car == 'audi'? I predict False.") print(car == 'audi')
+#5-1. Conditional Tests: Write a series of conditional tests. Print a statement describing each test and your prediction for the results of each test. Your code should look something like this: 
+#car = 'subaru' 
+#print("Is car == 'subaru'? I predict True.") 
+#print(car == 'subaru') 
+#print("\nIs car == 'audi'? I predict False.") 
+#print(car == 'audi')
     #• Look closely at your results, and make sure you understand why each line evaluates to True or False.
     #• Create at least 10 tests. Have at least 5 tests evaluate to True and another 5 tests evaluate to False.
 
+animal: str = "dog"
+print("Is animal == 'dog'? I predict True")
+print(animal == "dog")
+print("Is animal == 'cat'? I predict False")
+print(animal == "cat")
 
+author: str = "William Shakespeare"
+print("Is author == 'William Shakespeare'? I predict True")
+print(author == "William Shakespeare")
+print("Is author == 'Oscar Wilde'? I predict False")
+print(author == "Oscar Wilde")
+
+name: str = "Marco"
+print("Is name == 'Marco'? I predict True")
+print(name == "Marco")
+print("Is name == 'Dario'? I predict False")
+print(name == "Dario")
 
 #5-2. More Conditional Tests: You don’t have to limit the number of tests you create to 10. If you want to try more comparisons, write more tests and add them to conditional_tests.py. Have at least one True and one False result for each of the following:
     #• Tests for equality and inequality with strings
