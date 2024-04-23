@@ -85,7 +85,38 @@ print(f"The last three items in the list are: {cubes2[-3:]}")
     #• Add a different pizza to the list friend_pizzas.
     #• Prove that you have two separate lists. Print the message My favorite pizzas are:, and then use a for loop to print the first list. Print the message My friend’s favorite pizzas are:, and then use a for loop to print the second list. Make sure each new pizza is stored in the appropriate list.
 
-friend_pizzas: list[str] = ["margherita", "tuna and onions", "sausage and fries"]
+#first one
+pizzas: list[str] = [
+    "margherita", "tuna and onions", "sausage and fries"
+    ]
+statements: list[str] = [
+    "My favourite pizza is pizza", "I like pizza with", 
+    "I sometimes order a pizza with"
+    ]
+for i in range(len(pizzas)):
+    print(pizzas[i])
+    print(f"{statements[i]} {pizzas[i]}")
+print(f"{statements[0]} {pizzas[0]} but also {statements[1]} {pizzas[1]}. I usually eat pizza on saturdays and {statements[2]} {pizzas[2]}")
+
+#second one
+animals: list[str] = [
+    "bears", "frogs", "penguins"
+    ]
+statements: list[str] = [
+    "are potentially dangerous", 
+    "there are over 6000 species of", 
+    "mate for life"
+    ]
+for i in range(len(animals)):
+    print(animals[i])
+print(f"{animals[0]} {statements[0]}")
+print(f"{statements[1]} {animals[1]}")
+print(f"most {animals[2]} {statements[2]}")
+print(f"What {animals[0]}, {animals[1]} and {animals[2]} have in common is that they all are my favourite animals!")
+
+#third one
+friend_pizzas: list[str] = [
+    "margherita", "tuna and onions", "sausage and fries"]
 pizzas.append("quattro stagioni")
 friend_pizzas.append("marinara")
 print("My favourite pizzas are: ")
@@ -105,7 +136,15 @@ for i in range(len(friend_pizzas)):
 
 #4-15. Code Review: Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
 
-
+friend_pizzas: list[str] = ["margherita", "tuna and onions", "sausage and fries"]
+pizzas.append("quattro stagioni")
+friend_pizzas.append("marinara")
+print("My favourite pizzas are: ")
+for i in range(len(pizzas)):
+    print(pizzas[i])
+print("My friend's favourite pizzas are: ")
+for i in range(len(friend_pizzas)):
+    print(friend_pizzas[i])
 
 #5-1. Conditional Tests: Write a series of conditional tests. Print a statement describing each test and your prediction for the results of each test. Your code should look something like this: car = 'subaru' print("Is car == 'subaru'? I predict True.") print(car == 'subaru') print("\nIs car == 'audi'? I predict False.") print(car == 'audi')
     #• Look closely at your results, and make sure you understand why each line evaluates to True or False.
