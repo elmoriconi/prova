@@ -90,7 +90,8 @@ pizzas: list[str] = [
     "margherita", "tuna and onions", "sausage and fries"
     ]
 statements: list[str] = [
-    "My favourite pizza is pizza", "I like pizza with", 
+    "My favourite pizza is pizza", 
+    "I like pizza with", 
     "I sometimes order a pizza with"
     ]
 for i in range(len(pizzas)):
@@ -103,7 +104,7 @@ animals: list[str] = [
     "bears", "frogs", "penguins"
     ]
 statements: list[str] = [
-    "are potentially dangerous", 
+    "are potentially dangerous",
     "there are over 6000 species of", 
     "mate for life"
     ]
@@ -116,7 +117,8 @@ print(f"What {animals[0]}, {animals[1]} and {animals[2]} have in common is that 
 
 #third one
 friend_pizzas: list[str] = [
-    "margherita", "tuna and onions", "sausage and fries"]
+    "margherita", "tuna and onions", "sausage and fries"
+    ]
 pizzas.append("quattro stagioni")
 friend_pizzas.append("marinara")
 print("My favourite pizzas are: ")
