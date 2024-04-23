@@ -85,6 +85,28 @@ print(f"The last three items in the list are: {cubes2[-3:]}")
     #• Add a different pizza to the list friend_pizzas.
     #• Prove that you have two separate lists. Print the message My favorite pizzas are:, and then use a for loop to print the first list. Print the message My friend’s favorite pizzas are:, and then use a for loop to print the second list. Make sure each new pizza is stored in the appropriate list.
 
+
+friend_pizzas: list[str] = ["margherita", "tuna and onions", "sausage and fries"]
+pizzas.append("quattro stagioni")
+friend_pizzas.append("marinara")
+print("My favourite pizzas are: ")
+for i in range(len(pizzas)):
+    print(pizzas[i])
+print("My friend's favourite pizzas are: ")
+for i in range(len(friend_pizzas)):
+    print(friend_pizzas[i])
+
+#4-12. More Loops: All versions of foods.py in this section have avoided using for loops when printing, to save space. Choose a version of foods.py, and write two for loops to print each list of foods.
+
+
+
+#4-14. PEP 8: Look through the original PEP 8 style guide at https://python.org/dev/peps/pep-0008. You won’t use much of it now, but it might be interesting to skim through it.
+
+
+
+#4-15. Code Review: Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
+
+
 #first one
 pizzas: list[str] = [
     "margherita", "tuna and onions", "sausage and fries"
@@ -128,25 +150,6 @@ print("My friend's favourite pizzas are: ")
 for i in range(len(friend_pizzas)):
     print(friend_pizzas[i])
 
-#4-12. More Loops: All versions of foods.py in this section have avoided using for loops when printing, to save space. Choose a version of foods.py, and write two for loops to print each list of foods.
-
-
-
-#4-14. PEP 8: Look through the original PEP 8 style guide at https://python.org/dev/peps/pep-0008. You won’t use much of it now, but it might be interesting to skim through it.
-
-
-
-#4-15. Code Review: Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
-
-friend_pizzas: list[str] = ["margherita", "tuna and onions", "sausage and fries"]
-pizzas.append("quattro stagioni")
-friend_pizzas.append("marinara")
-print("My favourite pizzas are: ")
-for i in range(len(pizzas)):
-    print(pizzas[i])
-print("My friend's favourite pizzas are: ")
-for i in range(len(friend_pizzas)):
-    print(friend_pizzas[i])
 
 #5-1. Conditional Tests: Write a series of conditional tests. Print a statement describing each test and your prediction for the results of each test. Your code should look something like this: car = 'subaru' print("Is car == 'subaru'? I predict True.") print(car == 'subaru') print("\nIs car == 'audi'? I predict False.") print(car == 'audi')
     #• Look closely at your results, and make sure you understand why each line evaluates to True or False.
