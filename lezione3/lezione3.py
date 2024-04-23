@@ -28,15 +28,20 @@ for i in range(1, 21):
     print(i)
 
 #4-4. One Million: Make a list of the numbers from one to one million, and then use a for loop to print the numbers. (If the output is taking too long, stop it by pressing CTRL-C or by closing the output window.)
-
+"""
 numbers: list[int] = []
 for i in range(1, 1000001):
     numbers.append(i)
     print(i)
-
+"""
 #4-5. Summing a Million: Make a list of the numbers from one to one million, and then use min() and max() to make sure your list actually starts at one and ends at one million. Also, use the sum() function to see how quickly Python can add a million numbers.
 
-
+numbers2: list[int] = []
+for i in range(1, 1000001):
+    numbers2.append(i)
+print(min(numbers2))
+print(max(numbers2))
+print(sum(numbers2))
 
 #4-6. Odd Numbers: Use the third argument of the range() function to make a list of the odd numbers from 1 to 20. Use a for loop to print each number.
 
