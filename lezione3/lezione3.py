@@ -67,7 +67,8 @@ for i in range(1, 11):
 
 #4-9. Cube Comprehension: Use a list comprehension to generate a list of the first 10 cubes.
 
-
+cubes2: list[int] = [elem**3 for elem in range(11)]
+print(cubes2)
 
 #4-10. Slices: Using one of the programs you wrote in this chapter, add several lines to the end of the program that do the following:
     #• Print the message "The first three items in the list are:". Then use a slice to print the first three items from that program’s list.
