@@ -304,7 +304,13 @@ else:
     #• Make a list of your three favorite fruits and call it favorite_fruits.
     #• Write five if statements. Each should check whether a certain kind of fruit is in your list. If the fruit is in your list, the if block should print a statement, such as You really like Apples!
 
-
+favourite_fruits: list[str] = ["banana", "strawberry", "peach"]
+if "banana" in favourite_fruits: 
+    print("I really like bananas")
+if "strawberry" in favourite_fruits:
+    print("I love strawberries")
+if "peach" in favourite_fruits:
+    print("Peaches are my favourite fruit")
 
 #5-8. Hello Admin: Make a list of five or more usernames, including the name 'admin'. Imagine you are writing code that will print a greeting to each user after they log in to a website. Loop through the list, and print a greeting to each user.
     #• If the username is 'admin', print a special greeting, such as Hello admin, would you like to see a status report?
