@@ -343,7 +343,14 @@ else:
     #• Loop through the new_users list to see if each new username has already been used. If it has, print a message that the person will need to enter a new username. If a username has not been used, print a message saying that the username is available.
     #• Make sure your comparison is case insensitive. If 'John' has been used, 'JOHN' should not be accepted. (To do this, you’ll need to make a copy of current_users containing the lowercase versions of all existing users.)
 
-
+current_users: list[str] = ["elena", "Giada", "Admin", "alice", "margherita"]
+current_users2: list[str] = [x.lower() for x in current_users]
+new_users: list[str] = ["user6", "giulia", "giada"]
+for elem in new_users:
+    if elem in current_users2:
+        print("You need to enter a new username")
+    else:
+        print("The username is available")
 
 #5-11. Ordinal Numbers: Ordinal numbers indicate their position in a list, such as 1st or 2nd. Most ordinal numbers end in th, except 1, 2, and 3.
     #• Store the numbers 1 through 9 in a list.
