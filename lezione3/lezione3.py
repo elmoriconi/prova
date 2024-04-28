@@ -286,7 +286,19 @@ elif alien_color4 == "red":
     #• If the person is at least 20 years old but less than 65, print a message that the person is an adult.
     #• If the person is age 65 or older, print a message that the person is an elder.
 
-
+age: int = 15
+if age <= 2:
+    print("The person is a baby")
+elif age > 2 and age <= 4:
+    print("The person is a toddler")
+elif age > 4 and age <= 13:
+    print("The person is a kid")
+elif age > 13 and age <= 20:
+    print("The person is a teenager")
+elif age > 20 and age <= 65:
+    print("The person is an adult")
+else:
+    print("The person is an elder")
 
 #5-7. Favorite Fruit: Make a list of your favorite fruits, and then write a series of independent if statements that check for certain fruits in your list.
     #• Make a list of your three favorite fruits and call it favorite_fruits.
