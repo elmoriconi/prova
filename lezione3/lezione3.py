@@ -166,17 +166,17 @@ print(animal == "dog")
 print("Is animal == 'cat'? I predict False")
 print(animal == "cat")
 
-author: str = "William Shakespeare"
-print("Is author == 'William Shakespeare'? I predict True")
-print(author == "William Shakespeare")
-print("Is author == 'Oscar Wilde'? I predict False")
-print(author == "Oscar Wilde")
+number: int = 12
+print("Is number == 12? I predict True")
+print(number == 12)
+print("Is number == 55? I predict False")
+print(number == 55)
 
-name: str = "Marco"
-print("Is name == 'Marco'? I predict True")
-print(name == "Marco")
-print("Is name == 'Dario'? I predict False")
-print(name == "Dario")
+somma: float = 12.3 + 7.7
+print("Is somma == 20.0? I predict True")
+print(somma == 20.0)
+print("Is somma == 19? I predict False")
+print(somma == 19)
 
 #5-2. More Conditional Tests: You don’t have to limit the number of tests you create to 10. If you want to try more comparisons, write more tests and add them to conditional_tests.py. Have at least one True and one False result for each of the following:
     #• Tests for equality and inequality with strings
@@ -186,13 +186,53 @@ print(name == "Dario")
     #• Test whether an item is in a list
     #• Test whether an item is not in a list
 
+s1: str = "Libertà"
+s2: str = "libertà"
+print("Is s1 == s2? I predict False")
+print(s1 == s2)
+print("Is s1 == s2? I predict True")
+s1 = s1.lower()
+print(s1 == s2)
 
+x: int = 7
+y: int = 2
+print("Is x > y? I predict True")
+print(x > y)
+print("Is x < y? I predict False")
+print(x < y)
+print("Is x >= y? I predict True")
+print(x >= y)
+print("Is x <= y? I predict False")
+print(x <= y)
+print("Is x >= 0 and y >= 0? I predict True")
+print(x >= 0 and y >= 0)
+print("Is x >= 0 and y <= 0? I predict False")
+print(x >= 0 and y <= 0)
+print("Is x >= 0 or y <= 0? I predict True")
+print(x >= 0 or y <= 0)
+print("Is x <= 0 and y <= 0? I predict False")
+print(x <= 0 or y <= 0)
+
+lista: list[int] = [1, 2, 5, 8, 3, 9]
+print("Is 5 in lista? I predict True")
+print(5 in lista)
+print("Is 7 in lista? I predict False")
+print(7 in lista)
 
 #5-3. Alien Colors #1: Imagine an alien was just shot down in a game. Create a variable called alien_color and assign it a value of 'green', 'yellow', or 'red'.
     #• Write an if statement to test whether the alien’s color is green. If it is, print a message that the player just earned 5 points.
     #• Write one version of this program that passes the if test and another that fails. (The version that fails will have no output.)
 
+alien_color: str = "green"
+if alien_color == "green":
+    print("You earned 5 point")
 
+prediction: str = input("your prediction: ")
+if alien_color == prediction:
+    print("You earned 5 point")
+prediction: str = input("your prediction: ")
+if alien_color != prediction:
+    print()
 
 #5-4. Alien Colors #2: Choose a color for an alien as you did in Exercise 5-3, and write an if-else chain.
     #• If the alien’s color is green, print a statement that the player just earned 5 points for shooting the alien.
