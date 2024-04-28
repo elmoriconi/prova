@@ -316,7 +316,12 @@ if "peach" in favourite_fruits:
     #• If the username is 'admin', print a special greeting, such as Hello admin, would you like to see a status report?
     #• Otherwise, print a generic greeting, such as Hello Jaden, thank you for logging in again.
 
-
+users: list[str] = ["elena", "giada", "admin", "alice", "margherita"]
+for elem in users:
+    if elem != "admin":
+        print(f"Hello {elem}, thank you for logging in again.")
+    else: 
+        print("Hello admin, would you like to see a status report?")
 
 #5-9. No Users: Add an if test to hello_admin.py to make sure the list of users is not empty.
     #• If the list is empty, print the message We need to find some users!
