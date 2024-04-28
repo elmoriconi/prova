@@ -327,7 +327,15 @@ for elem in users:
     #• If the list is empty, print the message We need to find some users!
     #• Remove all of the usernames from your list, and make sure the correct message is printed.
 
-
+users.clear()
+if len(users) > 0:
+    for elem in users:
+        if elem != "admin":
+            print(f"Hello {elem}, thank you for logging in again.")
+        else: 
+            print("Hello admin, would you like to see a status report?")
+else:
+    print("We need to find some users!")
 
 #5-10. Checking Usernames: Do the following to create a program that simulates how websites ensure that everyone has a unique username.
     #• Make a list of five or more usernames called current_users.
