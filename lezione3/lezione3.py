@@ -227,11 +227,8 @@ alien_color: str = "green"
 if alien_color == "green":
     print("You earned 5 point")
 
-prediction: str = input("your prediction: ")
-if alien_color == prediction:
-    print("You earned 5 point")
-prediction: str = input("your prediction: ")
-if alien_color != prediction:
+alien_color1: str = "yellow"
+if alien_color != "green":
     print()
 
 #5-4. Alien Colors #2: Choose a color for an alien as you did in Exercise 5-3, and write an if-else chain.
@@ -239,11 +236,16 @@ if alien_color != prediction:
     #• If the alien’s color isn’t green, print a statement that the player just earned 10 points.
     #• Write one version of this program that runs the if block and another that runs the else block.
 
-alien_color2: str = "red"
-prediction: str = input("your prediction: ")
-if prediction == "green": 
+alien_color2: str = "green"
+if alien_color2 == "green": 
     print("You earned 5 points for shooting the alien")
-elif prediction != "green":
+else:
+    print("You earned 10 points")
+
+alien_color3: str = "red"
+if alien_color3 == "green": 
+    print("You earned 5 points for shooting the alien")
+else:
     print("You earned 10 points")
 
 #5-5. Alien Colors #3: Turn your if-else chain from Exercise 5-4 into an if-elif-else chain.
@@ -252,7 +254,29 @@ elif prediction != "green":
     #• If the alien is red, print a message that the player earned 15 points.
     #• Write three versions of this program, making sure each message is printed for the appropriate color alien.
 
+alien_color4: str = "green"
+if alien_color4 == "green": 
+    print("You earned 5 points")
+elif alien_color4 == "yellow":
+    print("You earned 10 points")
+elif alien_color4 == "red":
+    print("You earned 15 points")
 
+alien_color4: str = "yellow"
+if alien_color4 == "green": 
+    print("You earned 5 points")
+elif alien_color4 == "yellow":
+    print("You earned 10 points")
+elif alien_color4 == "red":
+    print("You earned 15 points")
+
+alien_color4: str = "red"
+if alien_color4 == "green": 
+    print("You earned 5 points")
+elif alien_color4 == "yellow":
+    print("You earned 10 points")
+elif alien_color4 == "red":
+    print("You earned 15 points")
 
 #5-6. Stages of Life: Write an if-elif-else chain that determines a person’s stage of life. Set a value for the variable age, and then:
     #• If the person is less than 2 years old, print a message that the person is a baby.
