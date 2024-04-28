@@ -239,7 +239,12 @@ if alien_color != prediction:
     #• If the alien’s color isn’t green, print a statement that the player just earned 10 points.
     #• Write one version of this program that runs the if block and another that runs the else block.
 
-
+alien_color2: str = "red"
+prediction: str = input("your prediction: ")
+if prediction == "green": 
+    print("You earned 5 points for shooting the alien")
+elif prediction != "green":
+    print("You earned 10 points")
 
 #5-5. Alien Colors #3: Turn your if-else chain from Exercise 5-4 into an if-elif-else chain.
     #• If the alien is green, print a message that the player earned 5 points.
