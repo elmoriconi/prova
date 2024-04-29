@@ -113,7 +113,19 @@ send_messages(messages2)
 
 #8-11. Archived Messages: Start with your work from Exercise 8-10. Call the function send_messages() with a copy of the list of messages. After calling the function, print both of your lists to show that the original list has retained its messages.
 
+#I'm not quite sure I understand what I'm supposed to do
 
+def send_messages(messages: list[str]) -> str:
+    for elem in messages:
+        print(elem)
+    sent_messages: list[str] = messages.copy()
+    print(messages)
+    print(sent_messages)
+
+messages2: list[str] = ["Hello, how are you?",
+                       "Have you finished you homework?",
+                       "I am studying right now"]
+send_messages(messages2)
 
 #8-12. Sandwiches: Write a function that accepts a list of items a person wants on a sandwich. The function should have one parameter that collects as many items as the function call provides, and it should print a summary of the sandwich that’s being ordered. Call the function three times, using a different number of arguments each time.
 
