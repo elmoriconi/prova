@@ -72,7 +72,16 @@ make_album(artist = "Taylor Swift", title = "The Tortured Poets Department", son
 
 #8-8. User Albums: Start with your program from Exercise 8-7. Write a while loop that allows users to enter an album’s artist and title. Once you have that information, call make_album() with the user’s input and print the dictionary that’s created. Be sure to include a quit value in the while loop.
 
+def make_album2(album: dict) -> dict:
+    print(album)
 
+album: dict = {
+        "artist": "",
+        "title": "",
+    }
+for keyword in album:
+    album[keyword] = input(f"{keyword}:")
+make_album2(album)
 
 #8-9. Messages: Make a list containing a series of short text messages. Pass the list to a function called show_messages(), which prints each text message.
 
