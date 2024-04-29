@@ -71,7 +71,7 @@ make_album(artist = "Conan Gray", title = "Superache", songs = None)
 make_album(artist = "Taylor Swift", title = "The Tortured Poets Department", songs = 31)
 
 #8-8. User Albums: Start with your program from Exercise 8-7. Write a while loop that allows users to enter an album’s artist and title. Once you have that information, call make_album() with the user’s input and print the dictionary that’s created. Be sure to include a quit value in the while loop.
-
+"""
 def make_album2(album: dict) -> dict:
     print(album)
 
@@ -82,10 +82,17 @@ album: dict = {
 for keyword in album:
     album[keyword] = input(f"{keyword}:")
 make_album2(album)
-
+"""
 #8-9. Messages: Make a list containing a series of short text messages. Pass the list to a function called show_messages(), which prints each text message.
 
+def show_messages(messages: list[str]):
+    for elem in messages:
+        print(elem)    
 
+messages: list[str] = ["Hello, how are you?",
+                       "Have you finished you homework?",
+                       "I am studying right now"]
+show_messages(messages)
 
 #8-10. Sending Messages: Start with a copy of your program from Exercise 8-9. Write a function called send_messages() that prints each text message and moves each message to a new list called sent_messages as it’s printed. After calling the function, print both of your lists to make sure the messages were moved correctly.
 
