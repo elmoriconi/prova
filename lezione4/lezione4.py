@@ -150,7 +150,18 @@ build_profile(first_name, last_name, age, hair_colour, eye_colour)
 
 #8-14. Cars: Write a function that stores information about a car in a dictionary. The function should always receive a manufacturer and a model name. It should then accept an arbitrary number of keyword arguments. Call the function with the required information and two other name-value pairs, such as a color or an optional feature. Your function should work for a call like this one: car = make_car('subaru', 'outback', color='blue', tow_package=True) Print the dictionary that’s returned to make sure all the information was stored correctly. 
 
+def car_info(manufacturer: str, model: str, **kwargs) -> dict:
+    dictionary: dict = {"manufacturer": manufacturer,
+                        "model": model,
+                        }
+    if len(kwargs) > 0:
+        for keyword in kwargs:
+            dictionary.update({keyword: kwargs[keyword]})
+    print(dictionary)
 
+manufacturer: str = "subaru"
+model: str = "outback"
+car_info(manufacturer, model, colour = "blue", two_package = True)
 
 #8-15. Printing Models: Put the functions for the example printing_models.py in a separate file called printing_functions.py. Write an import statement at the top of printing_models.py, and modify the file to use the imported functions.
 
