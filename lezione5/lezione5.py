@@ -42,3 +42,19 @@ def is_magic_number(num: int) -> bool:
 
 print(is_magic_number(70))
 print(is_magic_number(123)) 
+
+
+#Scrivi una funzione che, data una lista, ritorni un dictionary che mappa ogni elemento alla sua frequenza nella lista.
+#For example:
+#Test: print(frequency_dict(['mela', 'banana', 'mela'])) Result: {'mela': 2, 'banana': 1}
+
+def frequency_dict(elements: list) -> dict:
+    dizionario: dict = {}
+    for elem in elements:
+        if elem in dizionario:
+            dizionario[elem] += 1
+        else:
+            dizionario.update({elem: 1}) 
+    return dizionario
+
+print(frequency_dict(['mela', 'banana', 'mela']))
