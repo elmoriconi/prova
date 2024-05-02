@@ -103,24 +103,18 @@ print(check_parentheses("(()))("))
 def count_isolated(lista: list) -> int:
     quanti: int = 0
     i: int = 0
-    for elem in lista:
-        if i == 0:
-            if lista[i] != lista[i+1]:
+    if len(lista) == 0:
+        return quanti
+    else:
+        if lista[0] != lista[1]:
+            quanti += 1
+        if lista[-1] != lista[-2]:
+            quanti += 1     
+        for i in range(1, len(lista)-1):
+            if lista[i] != lista[i-1] and lista[i] != lista[i+1]:
                 quanti += 1
-                i += 1
-        elif i < len(lista)-1:
-            if lista[i] != lista[i-1]:
-                if lista[i] != lista[i+1]:
-                    quanti += 1
-                    i += 1
-            else:
-                i += 1
-        elif lista[i] == len(lista):
-            if lista[i] != lista[i-1]:
-                quanti += 1
-    return quanti
+        return quanti
 
- 	
 
 print(count_isolated([1, 1, 2, 2, 3, 4, 4]))
 
@@ -130,8 +124,16 @@ print(count_isolated([1, 1, 2, 2, 3, 4, 4]))
 #Test: print(remove_elements({5, 6, 7}, [7, 8, 9])) Result: {5, 6}
 
 def remove_elements(original_set: set[int], elements_to_remove: list[int]) -> set: 
-    nuovo_set: set = original_set.update(elements_to_remove)
-    print(nuovo_set)
+    secondo_set: set = set(elements_to_remove)
+    original_set.update(secondo_set)
+    per_iterare: list = list(original_set)
+    i: int = 0
+    while i in range(len(elements_to_remove)):
+        if per_iterare[i] in elements_to_remove:
+            per_iterare.remove(per_iterare[i])
+            i -= 1
+    original_set = set(per_iterare)
+    return original_set
 
-	
+print(remove_elements({5, 6, 7}, [7, 8, 9]))
 
