@@ -124,18 +124,12 @@ print(count_isolated([1, 1, 2, 2, 3, 4, 4]))
 #Test: print(remove_elements({5, 6, 7}, [7, 8, 9])) Result: {5, 6}
 
 def remove_elements(original_set: set[int], elements_to_remove: list[int]) -> set: 
-    if len(original_set) == 0:
-        return set()
-    else:
-        per_iterare: list = list(original_set)
-        i: int = 0
-        while i in range(len(elements_to_remove)):
-            if elements_to_remove[i] in per_iterare:
-                per_iterare.remove(per_iterare[i])
-        original_set = set(per_iterare)
-        return original_set
+    nuovo_set = original_set.copy()
+    for i in elements_to_remove:
+        nuovo_set.discard(i)
+    return nuovo_set
 
-(remove_elements({5, 6, 7}, [7, 8, 9]))
+print(remove_elements({5, 6, 7}, [7, 8, 9]))
 
 
 #Scrivi una funzione che unisce due dizionari. Se una chiave è presente in entrambi, somma i loro valori.
