@@ -26,3 +26,19 @@ def check_combination(conditionA: bool, conditionB: bool, conditionC: bool) -> s
 
 print(check_combination(True, False, True))
 print(check_combination(False, True, False))
+
+
+#Scrivi una funzione che, dato un numero intero, determina se è un "numero magico". Un numero magico è definito come un numero che contiene il numero 7.
+#For example:
+#Test: print(is_magic_number(70)) Result: True
+#Test: print(is_magic_number(123)) Result: False
+
+def is_magic_number(num: int) -> bool:
+    num: str = str(num)
+    if "7" in num:
+        return True
+    else:
+        return False
+
+print(is_magic_number(70))
+print(is_magic_number(123)) 
