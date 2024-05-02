@@ -107,27 +107,31 @@ def count_isolated(lista: list) -> int:
         if i == 0:
             if lista[i] != lista[i+1]:
                 quanti += 1
-                print(lista[i])
-                print(quanti)
                 i += 1
         elif i < len(lista)-1:
-            print(lista[i-1], elem, lista[i+1])
             if lista[i] != lista[i-1]:
                 if lista[i] != lista[i+1]:
                     quanti += 1
-                    print(lista[i])
-                    i += 1
-                else: 
                     i += 1
             else:
                 i += 1
-        elif lista[i] == lista[-1]:
+        elif lista[i] == len(lista):
             if lista[i] != lista[i-1]:
                 quanti += 1
-                print(lista[i])
-                print(quanti)
-#    return quanti
+    return quanti
 
  	
 
-(count_isolated([1, 1, 2, 2, 3, 4, 4]))
+print(count_isolated([1, 1, 2, 2, 3, 4, 4]))
+
+
+#Scrivi una funzione che, dato un insieme e una lista di numeri interi da rimuovere, ritorni un nuovo insieme senza i numeri specificati nella lista.
+#For example:
+#Test: print(remove_elements({5, 6, 7}, [7, 8, 9])) Result: {5, 6}
+
+def remove_elements(original_set: set[int], elements_to_remove: list[int]) -> set: 
+    nuovo_set: set = original_set.update(elements_to_remove)
+    print(nuovo_set)
+
+	
+
