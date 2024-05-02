@@ -147,3 +147,32 @@ def merge_dictionaries(dict1: dict, dict2: dict) -> dict:
     return dizionario
 
 print(merge_dictionaries({'x': 5}, {'x': -5}))
+
+
+
+#Scrivi una funzione che ruota gli elementi di una lista verso sinistra di un numero specificato k di posizioni. La rotazione verso sinistra significa che ciascun elemento della lista viene spostato a sinistra di una posizione e l'elemento iniziale viene spostato alla fine della lista. Per la rotazione utilizzare lo slicing e gestire il caso in cui il numero specificato di posizioni sia maggiore della lunghezza della lista.
+#For example:
+
+def rotate_left(elements: list, k: int) -> list:
+    lista: list = []
+    if k == len(elements):
+        return elements
+    elif k > len(elements):
+        k = k - len(elements)
+        lista.append(elements[k-1])
+        k -= 2
+        while k >= 0:
+            lista.insert(0, elements[k])
+            k -= 1
+        for i in range(-1, k):
+            lista.insert(0, elements[i])
+        return lista
+    else:
+        lista.append(elements[k-1])
+        k -= 2
+        while k >= 0:
+            lista.insert(0, elements[k])
+            k -= 1
+        for i in range(-1, k):
+            lista.insert(0, elements[i])
+        return lista
