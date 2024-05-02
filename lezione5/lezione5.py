@@ -73,3 +73,36 @@ def calculate_average(numbers: list[int]) -> float:
     
 print(calculate_average([1, 2, 3, 4, 5]))
 print(calculate_average([])) 
+
+
+#Scrivi una funzione che verifica se in una stringa le parentesi '(' e ')' sono bilanciate, cioè per ogni parentesi che apre c'è la corrispondente parentesi che chiude.
+#For example:
+#Test: print(check_parentheses("()()"))	Result: True
+#Test: print(check_parentheses("(()))(")) Result: False
+
+def check_parentheses(expression: str) -> bool:
+    count: int = 0
+    for elem in expression:
+        if elem == "(":
+            count += 1
+        elif elem == ")":
+            count -= 1
+        if count < 0:
+            return False
+    return count == 0
+
+print(check_parentheses("()()"))
+print(check_parentheses("(()))("))
+
+
+#Scrivi una funzione che ruota gli elementi di una lista verso sinistra di un numero specificato k di posizioni. La rotazione verso sinistra significa che ciascun elemento della lista viene spostato a sinistra di una posizione e l'elemento iniziale viene spostato alla fine della lista. Per la rotazione utilizzare lo slicing e gestire il caso in cui il numero specificato di posizioni sia maggiore della lunghezza della lista.
+#For example:
+#Test: print(rotate_left([1, 2, 3, 4, 5], 2)) Result: [3, 4, 5, 1, 2]
+"""
+def rotate_left(elements: list, k: int) -> list:
+    
+    return 
+
+print(rotate_left([1, 2, 3, 4, 5], 2))
+
+"""
