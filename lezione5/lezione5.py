@@ -111,7 +111,7 @@ def count_isolated(lista: list) -> int:
                 print(quanti)
                 i += 1
         elif i < len(lista)-1:
-            #print(lista[i-1], elem, lista[i+1])
+            print(lista[i-1], elem, lista[i+1])
             if lista[i] != lista[i-1]:
                 if lista[i] != lista[i+1]:
                     quanti += 1
@@ -121,12 +121,13 @@ def count_isolated(lista: list) -> int:
                     i += 1
             else:
                 i += 1
-        elif i == -1:
+        elif lista[i] == lista[-1]:
             if lista[i] != lista[i-1]:
                 quanti += 1
                 print(lista[i])
                 print(quanti)
 #    return quanti
 
-(count_isolated([1, 2, 2, 3, 3, 3, 4]))
-#print(count_isolated([1, 2, 3, 4, 5]))
+ 	
+
+(count_isolated([1, 1, 2, 2, 3, 4, 4]))
