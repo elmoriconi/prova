@@ -95,14 +95,21 @@ print(check_parentheses("()()"))
 print(check_parentheses("(()))("))
 
 
-#Scrivi una funzione che ruota gli elementi di una lista verso sinistra di un numero specificato k di posizioni. La rotazione verso sinistra significa che ciascun elemento della lista viene spostato a sinistra di una posizione e l'elemento iniziale viene spostato alla fine della lista. Per la rotazione utilizzare lo slicing e gestire il caso in cui il numero specificato di posizioni sia maggiore della lunghezza della lista.
+#Scrivi una funzione che conta e ritorna quante volte un elemento appare isolato in una lista di numeri interi. Un elemento è considerato isolato se non è affiancato sia a destra che a sinistra da elementi uguali.
 #For example:
-#Test: print(rotate_left([1, 2, 3, 4, 5], 2)) Result: [3, 4, 5, 1, 2]
-"""
-def rotate_left(elements: list, k: int) -> list:
-    
-    return 
+#Test: print(count_isolated([1, 2, 2, 3, 3, 3, 4])) Result: 2
+#Test: print(count_isolated([1, 2, 3, 4, 5])) Result: 5
 
-print(rotate_left([1, 2, 3, 4, 5], 2))
+def count_isolated(lista: list) -> int:
+    quanti: int = 0
+    i: int = 0
+    for elem in lista:
+        if elem != lista[i-1] or elem != lista[i+1]:
+            quanti += 1
+            i += 1
+        else:
+            i += 1
+    return quanti
 
-"""
+print(count_isolated([1, 2, 2, 3, 3, 3, 4]))
+print(count_isolated([1, 2, 3, 4, 5]))
