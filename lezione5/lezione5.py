@@ -122,7 +122,7 @@ print(count_isolated([1, 1, 2, 2, 3, 4, 4]))
 #Scrivi una funzione che, dato un insieme e una lista di numeri interi da rimuovere, ritorni un nuovo insieme senza i numeri specificati nella lista.
 #For example:
 #Test: print(remove_elements({5, 6, 7}, [7, 8, 9])) Result: {5, 6}
-
+"""
 def remove_elements(original_set: set[int], elements_to_remove: list[int]) -> set: 
     secondo_set: set = set(elements_to_remove)
     original_set.update(secondo_set)
@@ -136,4 +136,19 @@ def remove_elements(original_set: set[int], elements_to_remove: list[int]) -> se
     return original_set
 
 print(remove_elements({5, 6, 7}, [7, 8, 9]))
+"""
 
+#Scrivi una funzione che unisce due dizionari. Se una chiave è presente in entrambi, somma i loro valori.
+def merge_dictionaries(dict1: dict, dict2: dict) -> dict:
+    dizionario: dict = {}
+    for key in dict1:
+        if key not in dict2:
+            dizionario.update({key: dict1[key]})
+        else:
+            dizionario.update({key: dict2[key] + dict1[key]})
+    for key in dict2:
+        if key not in dizionario:
+            dizionario.update({key: dict2[key]})
+    return dizionario
+
+print(merge_dictionaries({'x': 5}, {'x': -5}))
