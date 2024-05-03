@@ -29,7 +29,7 @@ def visit_tree(tree: dict[int, list[int]], node: int):
 tree = {4: [3, 5], 3: [2, None], 2: [None, None], 5: [4.5, 6], 4.5: [None, None], 6: [None, None]}
 visit_tree(tree, 4)
 
-#in maniera iterativa
+#in maniera iterativa, depth first search
 
 def visit_tree_iterative(tree:  dict[int, list[int]], root: int):
     stack: list[int] = [root] #LIFO
@@ -44,3 +44,17 @@ def visit_tree_iterative(tree:  dict[int, list[int]], root: int):
 
 tree = {4: [3, 5], 3: [2, None], 2: [None, None], 5: [4.5, 6], 4.5: [None, None], 6: [None, None]}
 visit_tree_iterative(tree, 4)
+
+
+#BFS
+
+def visit_tree_iterative(tree:  dict[int, list[int]], root: int):
+    stack: list[int] = [root] #LIFO
+    while stack: #len > 0
+        curr_node = stack.pop(0)
+        print(curr_node)
+        left_child, right_child = tree.get(curr_node, [None, None])
+        if right_child:
+            stack.append(right_child)
+        if left_child:
+            stack.append(left_child)
