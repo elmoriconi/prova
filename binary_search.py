@@ -35,10 +35,11 @@ def visit_tree_iterative(tree:  dict[int, list[int]], root: int):
     stack: list[int] = [root] #LIFO
     while stack: #len > 0
         curr_node = stack.pop()
-        if curr_node:
-            print(curr_node)
-            left_child, right_child = tree.get(curr_node, [None, None])
+        print(curr_node)
+        left_child, right_child = tree.get(curr_node, [None, None])
+        if left_child:
             stack.append(right_child)
+        if right_child:
             stack.append(left_child)
 
 tree = {4: [3, 5], 3: [2, None], 2: [None, None], 5: [4.5, 6], 4.5: [None, None], 6: [None, None]}
