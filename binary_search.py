@@ -11,3 +11,6 @@ def binary_search(array: list[int], x: int) -> int:
             else:
                 high = mid - 1
     return None
+
+
+#in python array.index() fa in automatico la binary search se l'array è ordinato, altrimenti fa il for
