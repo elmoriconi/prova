@@ -16,4 +16,14 @@ def construct_rectangle(area: float) -> list[float]:
             index_diff = i
     return combos[index_diff]
 
- 
+  
+#es dell'armonia:
+
+from collections import Counter
+
+def find_lhs(notes: list[int]) -> int:
+    num_freq: dict = dict(Counter(notes))
+    max_length = 0
+    for num in num_freq:
+        max_length = max(max_length, num_freq[num] * num_freq[num+1])
+    return max_length
