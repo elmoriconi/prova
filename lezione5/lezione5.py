@@ -158,21 +158,6 @@ def rotate_left(elements: list, k: int) -> list:
     if k == len(elements):
         return elements
     elif k > len(elements):
-        k = k - len(elements)
-        lista.append(elements[k-1])
-        k -= 2
-        while k >= 0:
-            lista.insert(0, elements[k])
-            k -= 1
-        for i in range(-1, k):
-            lista.insert(0, elements[i])
-        return lista
-    else:
-        lista.append(elements[k-1])
-        k -= 2
-        while k >= 0:
-            lista.insert(0, elements[k])
-            k -= 1
-        for i in range(-1, k):
-            lista.insert(0, elements[i])
-        return lista
+        k = k % len(elements)
+    lista = elements[k:] + elements[:k]
+    return lista
