@@ -48,7 +48,7 @@ visit_tree_iterative(tree, 4)
 
 #BFS
 
-"""def visit_tree_iterative(tree:  dict[int, list[int]], root: int):
+def visit_tree_iterative(tree:  dict[int, list[int]], root: int):
     stack: list[int] = [root] #FIFO
     while stack: #len > 0
         curr_node = stack.pop(0)
@@ -58,7 +58,7 @@ visit_tree_iterative(tree, 4)
             stack.append(right_child)
         if left_child:
             stack.append(left_child)
-"""
+
 
 #es: visita in ampiezza calcolando la media per livelli. dizionario con chiave: livello, valore: media
 
