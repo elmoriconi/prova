@@ -89,13 +89,63 @@ class studenti:
     def __init__(self, name: str, grade: float):
         self.name = name
         self.student_grades.append(grade)
+        self.my_grades: list[float] = []
+    def add_grades(self, grade: float):
+        self.my_grades.append(grade)
+        self.student_grades.append(grade)
+
+    def grades_average(self):
+        return sum(self.my_grades)/len(self.my_grades)
 
     @classmethod
     def get_average_grades(cls) -> float:
         avg = sum(cls.student_grades)/len(cls.student_grades)
         return avg
-    
+
 francesca: studenti = studenti(grade = 8, name = "Francesca")
 davide: studenti = studenti(grade = 9, name = "Davide")
+francesca.add_grades(8)
 avg = studenti.get_average_grades()
+avgFrancesca = francesca.grades_average()
 print(f"la media della classe è {avg}")
+print(f"la media di Francesca è: {avgFrancesca}")
+
+
+class Animal:
+
+    def __init__(self, name:str):
+        self.name = name
+        self.legs = 0
+
+    def __str__(self) -> str:
+        return f"Name: {self.name}"
+
+    def change_legs(self, new_legs: int) -> int:
+        self.legs = new_legs
+
+    def setLegs(self, legs: int) -> int:
+        self.legs = legs
+    
+    def getLegs(self) -> int:
+        return self.legs
+
+    def printInfo2(self) -> str:
+        return f"Animal's name: {self.name}, animal's legs: {self.legs}."
+
+tiger: Animal = Animal("tiger")
+flamingo: Animal = Animal("flamingo")
+print(tiger)
+print(flamingo)
+tiger.change_legs(3)
+print(tiger.legs)
+elephant: Animal = Animal("elephant")
+frog: Animal = Animal("frog")
+snake: Animal = Animal("snake")
+elephant.setLegs(4)
+snake.setLegs(0)
+frog.setLegs(4)
+print(elephant.legs)
+print(snake.legs)
+print(frog.legs)
+print(frog.getLegs())
+print(frog.printInfo2())
