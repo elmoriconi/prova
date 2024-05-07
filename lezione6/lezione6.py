@@ -41,3 +41,21 @@ print(f"La persona più giovane è {people[index_min_age].name} che ha {people[i
 #con __str__
 print(people[0])
 
+class Student:
+
+
+    def __init__(self, name: str, studyProgram: str, age: int, gender: str):
+        self.name = name
+        self.studyProgram = studyProgram
+        self.age = age
+        self.gender = gender
+
+    def printInfo(self) -> str:
+        return print(f"Name: {self.name}, study program: {self.studyProgram}, age: {self.age}, gender: {self.gender}")
+
+elena: Student = Student("Elena M.", "Cloud Dev.", 21, "female")
+davide: Student = Student("Davide C.", "Cloud Dev.", 20, "male")
+walter: Student = Student("Walter A.", "Cloud Dev.", 32, "male")
+elena.printInfo()
+davide.printInfo()
+walter.printInfo()
