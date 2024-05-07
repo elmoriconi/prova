@@ -52,9 +52,9 @@ class Student:
     def printInfo(self) -> str:
         return print(f"Name: {self.name}, study program: {self.studyProgram}, age: {self.age}, gender: {self.gender}")
 
-elena: Student = Student("Elena M.", "Cloud Dev.", 21, "female")
-davide: Student = Student("Davide C.", "Cloud Dev.", 20, "male")
-walter: Student = Student("Walter A.", "Cloud Dev.", 32, "male")
-elena.printInfo()
-davide.printInfo()
-walter.printInfo()
+myself: Student = Student("Elena M.", "Cloud Dev.", 21, "female")
+left_classmate: Student = Student("Davide C.", "Cloud Dev.", 19, "male")
+far_left_classmate: Student = Student("Walter A.", "Cloud Dev.", 32, "male")
+myself.printInfo()
+left_classmate.printInfo()
+far_left_classmate.printInfo()
