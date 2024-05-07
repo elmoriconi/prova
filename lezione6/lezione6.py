@@ -34,6 +34,12 @@ print(restaurant4.describe_restaurant())
       #Make a method called describe_user() that prints a summary of the user’s information. 
       #Make another method called greet_user() that prints a personalized greeting to the user. 
       #Create several instances representing different users, and call both methods for each user.
+#9-5. Login Attempts: Add an attribute called login_attempts to your User class from Exercise 9-3. 
+      #Write a method called increment_login_attempts() that increments the value of login_attempts by 1. 
+      #Write another method called reset_login_attempts() that resets the value of login_attempts to 0.
+      #Make an instance of the User class and call increment_login_attempts() several times. 
+      #Print the value of login_attempts to make sure it was incremented properly, and then call reset_login_attempts(). 
+      #Print login_attempts again to make sure it was reset to 0.
 
 class User:
 
@@ -43,6 +49,7 @@ class User:
         self.age = age
         self.date_of_birth = date_of_birth
         self.username = username
+        self.login_attempts = 0
 
     def describe_user(self):
         return f"First and last name: {self.first_name} {self.last_name}, username: {self.username}, "\
@@ -50,6 +57,12 @@ class User:
 
     def greet_user(self):
         return f"Welcome back {self.username}"
+
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+
+    def reset_login_attempts(self):
+        self.login_attempts = 0
 
 user: User = User("Elena", "Moriconi", 21, "07/01/2003", "elmoriconi")
 print(user.describe_user())
@@ -63,6 +76,12 @@ print(user3.describe_user())
 print(user3.greet_user())
 print(user4.describe_user())
 print(user4.greet_user())
+#9-5
+for i in range(5):
+    user.increment_login_attempts()
+print(f"login attempts: {user.login_attempts}")
+user.reset_login_attempts()
+print(f"login attempts: {user.login_attempts}")
 
 #9-4. Number Served: Start with your program from Exercise 9-1. Add an attribute called number_served with a default value of 0. 
       #Create an instance called restaurant from this class. Print the number of customers the restaurant has served, and then 
@@ -93,6 +112,8 @@ restaurant0.increment_number_served(35)
 print(f"Clienti serviti: {restaurant0.number_served}")
 
 #9-5. Login Attempts: Add an attribute called login_attempts to your User class from Exercise 9-3. Write a method called increment_login_attempts() that increments the value of login_attempts by 1. Write another method called reset_login_attempts() that resets the value of login_attempts to 0. Make an instance of the User class and call increment_login_attempts() several times. Print the value of login_attempts to make sure it was incremented properly, and then call reset_login_attempts(). Print login_attempts again to make sure it was reset to 0.
+
+
 
 #9-6. Ice Cream Stand: An ice cream stand is a specific kind of restaurant. Write a class called IceCreamStand that inherits from the Restaurant class you wrote in Exercise 9-1  or Exercise 9-4. Either version of the class will work; just pick the one you like better. Add an attribute called flavors that stores a list of ice cream flavors. Write a method that displays these flavors. Create an instance of IceCreamStand, and call this method. 
 
