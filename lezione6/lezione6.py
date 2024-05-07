@@ -29,7 +29,40 @@ print(restaurant2.describe_restaurant())
 print(restaurant3.describe_restaurant())
 print(restaurant4.describe_restaurant())
 
-#9-3. Users: Make a class called User. Create two attributes called first_name and last_name, and then create several other attributes that are typically stored in a user profile. Make a method called describe_user() that prints a summary of the user’s information. Make another method called greet_user() that prints a personalized greeting to the user. Create several instances representing different users, and call both methods for each user.
+#9-3. Users: Make a class called User. Create two attributes called first_name and last_name, 
+      #and then create several other attributes that are typically stored in a user profile. 
+      #Make a method called describe_user() that prints a summary of the user’s information. 
+      #Make another method called greet_user() that prints a personalized greeting to the user. 
+      #Create several instances representing different users, and call both methods for each user.
+
+class User:
+
+    def __init__(self, first_name: str, last_name: str, age: int, date_of_birth: str, username: str):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.date_of_birth = date_of_birth
+        self.username = username
+
+    def describe_user(self):
+        return f"First and last name: {self.first_name} {self.last_name}, username: {self.username}, "\
+             + f"age: {self.age}, date of birth: {self.date_of_birth}"
+
+    def greet_user(self):
+        return f"Welcome back {self.username}"
+
+user: User = User("Elena", "Moriconi", 21, "07/01/2003", "elmoriconi")
+print(user.describe_user())
+print(user.greet_user())
+user2: User = User("Giada", "Giammarco", 20, "15/07/2003", "g.gmm")
+user3: User = User("Alice", "Bocci", 21, "03/05/2003", "allie")
+user4: User = User("Vittoria", "Verdesca", 21, "16/04/2003", "vitto")
+print(user2.describe_user())
+print(user2.greet_user())
+print(user3.describe_user())
+print(user3.greet_user())
+print(user4.describe_user())
+print(user4.greet_user())
 
 #9-4. Number Served: Start with your program from Exercise 9-1. Add an attribute called number_served with a default value of 0. Create an instance called restaurant from this class. Print the number of customers the restaurant has served, and then change this value and print it again. Add a method called set_number_served() that lets you set the number of customers that have been served. Call this method with a new number and print the value again. Add a method called increment_number_served() that lets you increment the number of customers who’ve been served. Call this method with any number you like that could represent how many customers were served in, say, a day of business. 
 
