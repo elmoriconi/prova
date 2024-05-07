@@ -28,7 +28,6 @@ gabriele: Person = Person("Gabriele C.", 19, 180, 80)
 
 people: list[Person] = [alice, bob, elena, giada, gabriele]
 #senza __str__
-"""
 min_age: int = float('inf')
 index_min_age: int = 0
 for i in range(len(people)):
@@ -37,7 +36,7 @@ for i in range(len(people)):
         index_min_age = i
 print(f"La persona più giovane è {people[index_min_age].name} che ha {people[index_min_age].age} anni. " \
       + f"Altezza {people[index_min_age].height} cm e peso {people[index_min_age].weight} kg")
-"""
+
 #con __str__
 print(people[0])
 
