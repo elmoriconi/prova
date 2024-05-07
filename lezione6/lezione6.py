@@ -43,18 +43,59 @@ print(people[0])
 class Student:
 
 
-    def __init__(self, name: str, studyProgram: str, age: int, gender: str):
+    def __init__(self, name: str, studyProgram: str):
         self.name = name
         self.studyProgram = studyProgram
-        self.age = age
-        self.gender = gender
+        self.age = None
+        self.gender = None
 
     def printInfo(self) -> str:
-        return print(f"Name: {self.name}, study program: {self.studyProgram}, age: {self.age}, gender: {self.gender}")
+        if self.age:
+            return f"Name: {self.name}, study program: {self.studyProgram}, age: {self.age}"
+        if self.gender:
+            return f"Name: {self.name}, study program: {self.studyProgram}, gender: {self.gender}"
+        if self.age and self.gender:
+            return f"Name: {self.name}, study program: {self.studyProgram}, age: {self.age}, gender: {self.gender}"
+        else:
+            return f"Name: {self.name}, study program: {self.studyProgram}"
+        
+    def set_age(self, age: int):
+        self.age: int = age
+    
+    def set_gender(self, gender: str):
+        self.gender: str = gender
 
-myself: Student = Student("Elena M.", "Cloud Dev.", 21, "female")
-left_classmate: Student = Student("Davide C.", "Cloud Dev.", 19, "male")
-far_left_classmate: Student = Student("Walter A.", "Cloud Dev.", 32, "male")
-myself.printInfo()
-left_classmate.printInfo()
-far_left_classmate.printInfo()
+elena: Student = Student("Elena M.", "Cloud Dev.")
+davide: Student = Student("Davide C.", "Cloud Dev.")
+walter: Student = Student("Walter A.", "Cloud Dev.")
+print(elena.printInfo())
+print(davide.printInfo())
+print(walter.printInfo())
+elena.set_age(21)
+walter.set_gender("male")
+davide.set_age(19)
+davide.set_gender("male")    #perché questo non lo aggiunge?
+print(elena.printInfo())
+print(davide.printInfo())
+print(walter.printInfo())
+
+
+#metodi per la classe
+
+class studenti:
+
+    student_grades: list[float] = []
+
+    def __init__(self, name: str, grade: float):
+        self.name = name
+        self.student_grades.append(grade)
+
+    @classmethod
+    def get_average_grades(cls) -> float:
+        avg = sum(cls.student_grades)/len(cls.student_grades)
+        return avg
+    
+francesca: studenti = studenti(grade = 8, name = "Francesca")
+davide: studenti = studenti(grade = 9, name = "Davide")
+avg = studenti.get_average_grades()
+print(f"la media della classe è {avg}")
