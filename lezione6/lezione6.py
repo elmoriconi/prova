@@ -64,7 +64,33 @@ print(user3.greet_user())
 print(user4.describe_user())
 print(user4.greet_user())
 
-#9-4. Number Served: Start with your program from Exercise 9-1. Add an attribute called number_served with a default value of 0. Create an instance called restaurant from this class. Print the number of customers the restaurant has served, and then change this value and print it again. Add a method called set_number_served() that lets you set the number of customers that have been served. Call this method with a new number and print the value again. Add a method called increment_number_served() that lets you increment the number of customers who’ve been served. Call this method with any number you like that could represent how many customers were served in, say, a day of business. 
+#9-4. Number Served: Start with your program from Exercise 9-1. Add an attribute called number_served with a default value of 0. 
+      #Create an instance called restaurant from this class. Print the number of customers the restaurant has served, and then 
+      #change this value and print it again. Add a method called set_number_served() that lets you set the number of customers 
+      #that have been served. Call this method with a new number and print the value again. 
+      #Add a method called increment_number_served() that lets you increment the number of customers who’ve been served. 
+      #Call this method with any number you like that could represent how many customers were served in, say, a day of business. 
+
+class Restaurant2:
+
+    def __init__(self, restaurant_name:str, cuisine_type: str):
+        self.name = restaurant_name
+        self.type = cuisine_type
+        self.number_served = 0
+
+    def set_number_served(self, number_served: int): 
+        self.number_served = number_served
+
+    def increment_number_served(self, increment: int): 
+        self.number_served += increment
+
+restaurant0: Restaurant2 = Restaurant2("Oishi", "giapponese")
+restaurant0.set_number_served(3)
+print(f"Clienti serviti: {restaurant0.number_served}")
+restaurant0.set_number_served(9)
+print(f"Clienti serviti: {restaurant0.number_served}")
+restaurant0.increment_number_served(35)
+print(f"Clienti serviti: {restaurant0.number_served}")
 
 #9-5. Login Attempts: Add an attribute called login_attempts to your User class from Exercise 9-3. Write a method called increment_login_attempts() that increments the value of login_attempts by 1. Write another method called reset_login_attempts() that resets the value of login_attempts to 0. Make an instance of the User class and call increment_login_attempts() several times. Print the value of login_attempts to make sure it was incremented properly, and then call reset_login_attempts(). Print login_attempts again to make sure it was reset to 0.
 
