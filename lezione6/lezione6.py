@@ -113,18 +113,15 @@ print(f"la media di Francesca è: {avgFrancesca}")
 
 class Animal:
 
-    def __init__(self, name:str):
+    def __init__(self, name:str, legs: int):
         self.name = name
-        self.legs = 0
+        self.legs = legs
 
     def __str__(self) -> str:
         return f"Name: {self.name}"
 
-    def change_legs(self, new_legs: int) -> int:
+    def setLegs(self, new_legs: int) -> int:
         self.legs = new_legs
-
-    def setLegs(self, legs: int) -> int:
-        self.legs = legs
     
     def getLegs(self) -> int:
         return self.legs
@@ -132,13 +129,13 @@ class Animal:
     def printInfo2(self) -> str:
         return f"Animal's name: {self.name}, animal's legs: {self.legs}."
 
-tiger: Animal = Animal("tiger")
-flamingo: Animal = Animal("flamingo")
+tiger: Animal = Animal("tiger", 4)
+flamingo: Animal = Animal("flamingo", 2)
 print(tiger)
 print(flamingo)
-tiger.change_legs(3)
+tiger.legs = 3
 print(tiger.legs)
-elephant: Animal = Animal("elephant")
+"""elephant: Animal = Animal("elephant")
 frog: Animal = Animal("frog")
 snake: Animal = Animal("snake")
 elephant.setLegs(4)
@@ -149,7 +146,7 @@ print(snake.legs)
 print(frog.legs)
 print(frog.getLegs())
 print(frog.printInfo2())
-
+"""
 
 
 #ESERCIZI PER CASA:
