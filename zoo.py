@@ -27,9 +27,6 @@
 #5. describe_zoo() (Visualizza informazioni sullo zoo): visualizza informazioni su tutti i guardani dello zoo, sui recinti dello zoo che contengono animali. 
     #Fra un recinto e l'altro mettete 30 volte il carattere #
 
-#Metodi 3 e 4 sono esclusivi dello zookeper
-
-
 class Zoo:
 
     class Zookeper:
@@ -45,23 +42,33 @@ class Zoo:
                 self.area = area
                 self.temperature = temperature
                 self.habitat = habitat
+                self.list_of_animals = []
+                self.residual_area = #funzione che devo ancora scrivere
 
-            class Animal:
+        class Animal:
 
-                def __init__(self, name: str, species: str, age: int, height: int, width: int, habitat: str, health: int) -> None:
-                    self.name = name
-                    self.species = species 
-                    self.age = age
-                    self.height = height
-                    self.width = width
-                    self.habitat = habitat
-                    self.health = 100 * (1/age)
+            def __init__(self, name: str, species: str, age: int, height: int, width: int, habitat: str, health: int) -> None:
+                self.name = name
+                self.species = species 
+                self.age = age
+                self.height = height
+                self.width = width
+                self.habitat = habitat
+                self.health = 100 * (1/age)
 
         def addAnimal(cls, animal: Animal, fence: Fence):
-            pass
+            if animal not in fence:
+                if animal.habitat == fence.habitat:
+                    if fence.residual_area >= animal.height * animal.width:
+                        fence.list_of_animals.append(animal)
+            elif animal in fence:
+                print("animal already in fence")
+            else:
+                print("impossibl to add animal")
 
         def removeAnimal(cls, animal: Animal, fence: Fence):
-            pass
+            if animal in fence:
+                fence.remove(animal)
 
         def feed_animal(self, animal: Animal):
             pass
@@ -71,5 +78,5 @@ class Zoo:
 
     @classmethod
     def describe_zoo(cls):
-        pass
+        return f""
 
