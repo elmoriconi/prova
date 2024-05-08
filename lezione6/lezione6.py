@@ -231,6 +231,7 @@ class studenti:
         self.name = name
         self.student_grades.append(grade)
         self.my_grades: list[float] = []
+
     def add_grades(self, grade: float):
         self.my_grades.append(grade)
         self.student_grades.append(grade)
@@ -287,5 +288,49 @@ print(snake.legs)
 print(frog.legs)
 print(frog.getLegs())
 print(frog.printInfo2())
+"""
+"""
+class Food:
+
+    def __init__(self, name: str, price: float, description: str = None):
+        self.name = name
+        self.price = price
+        self.description = description
+
+    def __str__(self):
+        return print(f"{self.name}: {self.description}. {self.price} euro.")    
+
+first_food: Food = Food("pasta al pesto", 13, "pasta con pesto di basilico")
+second_food: Food = Food("hamburger", 8.50, "panino con carne, insalata, pomodoro e salsa")
+third_food: Food = Food("pasta con il tonno", 12.50, "pasta con passata di pomodoro e tonno")
+first_food.__str__()
+second_food.__str__()
+third_food.__str__()
+
+class Menu:
+
+    def __init__(self, foods: list[Food] = [] ): #foods = [] si scrive così perché è opzionale
+        self.foods: list[Food] = foods
+    
+    def __str__(self) -> str:
+        repr: str = ""
+        for food in self.foods:
+            repr += food.__str__()
+        return f"{self.foods}"
+
+    def addFood(self, new_food: str):
+        self.foods.append(new_food)
+
+    def removeFood(self, old_food: str):
+        self.foods.remove(old_food)
+
+menu = Menu()
+menu.addFood(first_food)
+menu.addFood(second_food)
+menu.addFood(third_food)
+item4: Menu = Menu("pizza", 7).addFood
+item5: Menu = Menu("tramezzino", 3).addFood
+menu.removeFood(first_food)
+print(menu)
 """
 
