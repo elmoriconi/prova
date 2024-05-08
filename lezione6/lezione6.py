@@ -319,7 +319,12 @@ class Menu:
         return f"{self.foods}"
 
     def addFood(self, new_food: str):
-        self.foods.append(new_food)
+        count: int = 0
+        for food_menu in self.foods:
+            if food.name == food_menu.name:
+                count += 1  #non sarà mai > 1
+        if count == 0:
+            self.foods.append(new_food)
 
     def removeFood(self, old_food: str):
         self.foods.remove(old_food)
@@ -328,8 +333,8 @@ menu = Menu()
 menu.addFood(first_food)
 menu.addFood(second_food)
 menu.addFood(third_food)
-item4: Menu = Menu("pizza", 7).addFood
-item5: Menu = Menu("tramezzino", 3).addFood
+item4: Food = Food("pizza", 7)
+item5: Food = Food("tramezzino", 3, "prosciutto e formaggio")
 menu.removeFood(first_food)
 print(menu)
 """
