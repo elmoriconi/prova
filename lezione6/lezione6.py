@@ -111,11 +111,14 @@ print(f"Clienti serviti: {restaurant0.number_served}")
 restaurant0.increment_number_served(35)
 print(f"Clienti serviti: {restaurant0.number_served}")
 
-#9-5. Login Attempts: Add an attribute called login_attempts to your User class from Exercise 9-3. Write a method called increment_login_attempts() that increments the value of login_attempts by 1. Write another method called reset_login_attempts() that resets the value of login_attempts to 0. Make an instance of the User class and call increment_login_attempts() several times. Print the value of login_attempts to make sure it was incremented properly, and then call reset_login_attempts(). Print login_attempts again to make sure it was reset to 0.
+#9-6. Ice Cream Stand: An ice cream stand is a specific kind of restaurant. Write a class called IceCreamStand that inherits from the Restaurant class you wrote 
+      #in Exercise 9-1  or Exercise 9-4. Either version of the class will work; just pick the one you like better. Add an attribute called flavors that stores 
+      #a list of ice cream flavors. Write a method that displays these flavors. Create an instance of IceCreamStand, and call this method. 
 
+class IceCreamStand(Restaurant):
 
-
-#9-6. Ice Cream Stand: An ice cream stand is a specific kind of restaurant. Write a class called IceCreamStand that inherits from the Restaurant class you wrote in Exercise 9-1  or Exercise 9-4. Either version of the class will work; just pick the one you like better. Add an attribute called flavors that stores a list of ice cream flavors. Write a method that displays these flavors. Create an instance of IceCreamStand, and call this method. 
+    def __init_(self):
+        pass
 
 #9-7. Admin: An administrator is a special kind of user. Write a class called Admin that inherits from the User class you wrote in Exercise 9-3 or Exercise 9-5. Add an attribute, privileges, that stores a list of strings like "can add post", "can delete post", "can ban user", and so on. Write a method called show_privileges() that lists the administrator’s set of privileges. Create an instance of Admin, and call your method. 
 
@@ -255,7 +258,7 @@ print(f"la media di Francesca è: {avgFrancesca}")
 
 class Animal:
 
-    def __init__(self, name:str, legs: int):
+    def __init__(self, name:str, legs: int = None):
         self.name = name
         self.legs = legs
 
@@ -277,7 +280,7 @@ print(tiger)
 print(flamingo)
 tiger.legs = 3
 print(tiger.legs)
-"""elephant: Animal = Animal("elephant")
+elephant: Animal = Animal("elephant")
 frog: Animal = Animal("frog")
 snake: Animal = Animal("snake")
 elephant.setLegs(4)
@@ -288,7 +291,7 @@ print(snake.legs)
 print(frog.legs)
 print(frog.getLegs())
 print(frog.printInfo2())
-"""
+
 """
 class Food:
 
