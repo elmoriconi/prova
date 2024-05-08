@@ -323,6 +323,7 @@ class Menu:
         for food_menu in self.foods:
             if food.name == food_menu.name:
                 count += 1  #non sarà mai > 1
+                food_menu.price = food.price
         if count == 0:
             self.foods.append(new_food)
 
