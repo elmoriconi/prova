@@ -39,35 +39,34 @@ class Zoo:
             self.surname = surname
             self.id = id
 
-        def feed_animal(self):
-            pass
+        class Fence:
 
-        def clean(self):
-            pass
-
-    class Fence:
-
-        def __init__(self, area: str, temperature: float, habitat: str) -> None:
-            self.area = area
-            self.temperature = temperature
-            self.habitat = habitat
-
-        class Animal:
-
-            def __init__(self, name: str, species: str, age: int, height: int, width: int, habitat: str, health: int) -> None:
-                self.name = name
-                self.species = species 
-                self.age = age
-                self.height = height
-                self.width = width
+            def __init__(self, area: str, temperature: float, habitat: str) -> None:
+                self.area = area
+                self.temperature = temperature
                 self.habitat = habitat
-                self.health = 100 * (1/age)
 
-        @classmethod
-        def addAnimal(cls, animal: Animal):
+            class Animal:
+
+                def __init__(self, name: str, species: str, age: int, height: int, width: int, habitat: str, health: int) -> None:
+                    self.name = name
+                    self.species = species 
+                    self.age = age
+                    self.height = height
+                    self.width = width
+                    self.habitat = habitat
+                    self.health = 100 * (1/age)
+
+        def addAnimal(cls, animal: Animal, fence: Fence):
             pass
 
-        def removeAnimal(cls, animal: Animal):
+        def removeAnimal(cls, animal: Animal, fence: Fence):
+            pass
+
+        def feed_animal(self, animal: Animal):
+            pass
+
+        def clean(self, fence: Fence):
             pass
 
     @classmethod

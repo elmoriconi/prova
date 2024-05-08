@@ -326,7 +326,7 @@ class Menu:
             repr += food.__str__() + \n
         avg_price: float = self.getAvgPrice()
         repr += "_" * 30 + "\n"
-        repr += f"Prezzo medio = {avg_price}
+        repr += f"Prezzo medio = {avg}
         return repr
 
     def addFood(self, new_food: str):
