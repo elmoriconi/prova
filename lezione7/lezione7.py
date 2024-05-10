@@ -30,3 +30,36 @@ def somma_condizionale(numeri: list[int]) -> int:
 
 print(somma_condizionale([1, 2, 3, 6, 12]))
 print(somma_condizionale([5, 7, 11]))
+
+
+#Scrivi una funzione che elimini dalla lista dati certi elementi specificati in un dizionario. 
+#Il dizionario contiene elementi da rimuovere come chiavi e il numero di volte che devono essere rimossi come valori.
+#For example:
+#Test: print(rimuovi_elementi([1, 2, 3, 2, 4], {2: 2})) Result: [1, 3, 4]
+#Test: print(rimuovi_elementi([], {2: 1})) Result: []
+
+def rimuovi_elementi(lista: list[int], da_rimuovere: dict[int:int]) -> list[int]:
+    pass
+
+print(rimuovi_elementi([1, 2, 3, 2, 4], {2: 2}))
+print(rimuovi_elementi([], {2: 1})) 
+
+
+#Scrivi una funzione che prenda in input una lista di dizionari che rappresentano voti di studenti e aggrega i voti per studente in un nuovo dizionario.
+#For example:
+#Test: print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}])) Result: {'Alice': [90, 85], 'Bob': [75]}
+#Test: print(aggrega_voti([])) Result: {}
+
+def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
+    new_dict: dict = {}
+    for elem in voti:
+        student_name: str = elem["nome"]
+        student_grade: int = elem["voto"]
+        if student_name in new_dict:
+            new_dict[student_name].append(student_grade)
+        else:
+            new_dict[student_name] = [student_grade]
+    return new_dict
+
+print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}]))
+print(aggrega_voti([]))
