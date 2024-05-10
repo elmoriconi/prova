@@ -63,3 +63,20 @@ def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
 
 print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}]))
 print(aggrega_voti([]))
+
+
+#Scrivi una funzione che accetti un dizionario di prodotti con i prezzi e restituisca un nuovo dizionario con solo i prodotti che hanno un prezzo superiore a 20, scontati del 10%.
+#For example:
+#Test: print(filtra_e_mappa({'Penna': 15.0, 'Zaino': 50.0, 'Quaderno': 22.0})) Result: {'Zaino': 45.0, 'Quaderno': 19.8}
+#Test: print(filtra_e_mappa({'Gomma': 2.0, 'Matita': 1.0}))  Result: {}
+
+def filtra_e_mappa(prodotti: dict[str:float]) -> list[str:float]:
+    new_dict: dict = {}
+    for key, value in prodotti.items():
+        if value > 20:
+            prezzo_scontato: float = value * 0.9
+            new_dict.update({key: prezzo_scontato})
+    return new_dict
+
+print(filtra_e_mappa({'Penna': 15.0, 'Zaino': 50.0, 'Quaderno': 22.0}))
+print(filtra_e_mappa({'Gomma': 2.0, 'Matita': 1.0})) 
