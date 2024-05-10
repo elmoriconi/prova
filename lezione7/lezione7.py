@@ -99,11 +99,7 @@ print(filtra_e_mappa({'Gomma': 2.0, 'Matita': 1.0}))
 
 def create_contact(name: str, email: str=None, telefono: int=None) -> dict:
     contact_info: dict = {}
-    contact_info.update({"profile": name})
-    if email:
-        contact_info.update({"email": email})
-    if telefono:
-        contact_info.update({"telefono": telefono})    
+    contact_info.update({"profile": name}, {"email": email}, {"telefono": telefono})    
     return contact_info
 
 def update_contact(dictionary: dict, name: str, email: str =None, telefono: int=None) -> dict:
@@ -123,4 +119,4 @@ def update_contact(dictionary: dict, name: str, email: str =None, telefono: int=
 
 contact = create_contact("Mario Rossi", email="mario.rossi@gmail.com", telefono=788787)
 print(create_contact("Mario Rossi", email="mario.rossi@gmail.com", telefono=788787))
-print(update_contact(contact, "Mario Rossi", telefono=123456789))
+print(update_contact(contact, "Mario Rossi", telefono=123456789)) 
