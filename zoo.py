@@ -90,6 +90,7 @@ class Zoo:
     def describe_zoo(cls):
         pass
 
-scoiattolo = Animal(name="Scoiattolo", species="Blabla", age=25)
+#scoiattolo = Zoo(name="Scoiattolo", species="Blabla", age=25)
+
 #prima = Fence(area=100, temperature=25, habitat="Continent")
-#lorenzo = ZooKeeper("Lorenzo", "Maggi", 1234)
+lorenzo = Zoo ZooKeeper("Lorenzo", "Maggi", 1234)
