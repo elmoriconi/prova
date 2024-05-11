@@ -269,7 +269,7 @@ print(f"la media di Francesca è: {avgFrancesca}")
 
 class Animal:
 
-    def __init__(self, name:str, legs: int = None):
+    def __init__(self, name: str, legs: int = None):
         self.name = name
         self.legs = legs
 
