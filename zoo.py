@@ -36,14 +36,20 @@ class Zoo:
             self.surname = surname
             self.id = str(id)
 
+        def __str__(self) -> str:
+            return f"name = {self.name}, surname = {self.surname}, id = {self.id}"
+
         class Fence:
 
             def __init__(self, area: int, temperature: float, habitat: str):
                 self.area = area
                 self.temperature = temperature
                 self.habitat = habitat
-                self.list_of_animals = []
-                self.residual_area = self.area - self.list_of_animals
+                self.list_of_animals: list[str] = []
+                self.residual_area = [self.area - (animal.width * animal.height) for animal in self.list_of_animals]
+
+            def __str__(self) -> str:
+                return f"area = {self.area}, temperature = {self.temperature}, habitat = {self.habitat}"
 
         class Animal:
 
@@ -56,6 +62,9 @@ class Zoo:
                 self.habitat = habitat
                 self.health: float = 100 * (1/age)
                 self.area: float = self.height * self.width
+
+            def __str__(self) -> str:
+                return f"name = {self.name}, species = {self.species}, age = {self.age}"
 
         def add_animal(self, animal: Animal, fence: Fence):
             if animal not in fence:
@@ -84,13 +93,20 @@ class Zoo:
                 print("Not enough space to feed animal")
 
         def clean(self, fence: Fence):
-            pass
+            time: float = 0
+            if fence.residual_area > 0:
+                time = (fence.area - fence.residual_area) / fence.residual_area
+            return time
 
     @classmethod
     def describe_zoo(cls):
-        pass
+        
+        return f""
 
-#scoiattolo = Zoo(name="Scoiattolo", species="Blabla", age=25)
+scoiattolo = Zoo.ZooKeeper.Animal("Scoiattolo", "Blabla", 25, 15, 3, "Continent")
+prima = Zoo.ZooKeeper.Fence(100, 25, "Continent")
+lorenzo = Zoo.ZooKeeper("Lorenzo", "Maggi", 1234)
+print(lorenzo)
+print(scoiattolo)
+print(prima)
 
-#prima = Fence(area=100, temperature=25, habitat="Continent")
-lorenzo = Zoo ZooKeeper("Lorenzo", "Maggi", 1234)
