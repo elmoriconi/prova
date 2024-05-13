@@ -72,9 +72,9 @@ class Zoo:
                     if fence.residual_area >= animal.height * animal.width:
                         fence.list_of_animals.append(animal)
             elif animal in fence:
-                print("animal already in fence")
+                print("animal already in fence") #levare
             else:
-                print("impossible to add animal")
+                print("impossible to add animal") #levare
 
         def remove_animal(self, animal: Animal, fence: Fence):
             if animal in fence:
@@ -90,7 +90,7 @@ class Zoo:
                 animal.width = increased_width
                 fence.residual_area -= animal_area_increase
             else:
-                print("Not enough space to feed animal")
+                print("Not enough space to feed animal") #levare
 
         def clean(self, fence: Fence):
             time: float = 0
