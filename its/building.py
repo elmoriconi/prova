@@ -7,10 +7,11 @@ class Building:
         self.name: str = name
         self.address: str = address
         self.floors: int = floors
-        self.rooms: list[Room] = 
+        self.rooms: list[Room] = []
 
     def add_rooms(self, room: Room):
-        if room not in self.get_rooms() and room.floor <= self.get_floors():
+        lower, upper = self.get_floors()
+        if room not in self.get_rooms() and lower <= self.get_floors() <= upper:
             self.rooms.append(room)
             return True
         return False
@@ -40,4 +41,4 @@ class Building:
         s: str = f"Edificio: {self.get_name()}, indirizzo: {self.get_address()}, piani: {self.get_floors()}"
         s += ""
         for room in self.get_rooms():
-            s += 
+            s += ""
