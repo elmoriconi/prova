@@ -81,7 +81,7 @@ class Zoo:
                 fence.remove(animal)
                 fence.residual_area += animal.width * animal.height
 
-        def feed(self, animal: Animal, fence: Fence):
+        def feed(self, animal: Animal, fence: Fence): #levare fence: serve un riferimento ad essa ma tramite animal
             increased_height: float = animal.height + ((2/100) * animal.height)
             increased_width: float = animal.width + ((2/100) * animal.width)
             animal_area_increase: int = animal.area - (increased_height * increased_width)
