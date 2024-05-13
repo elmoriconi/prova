@@ -50,11 +50,16 @@ class Animal:
     
 class Person(Animal):
 
+    def __init__(self, name, age, id: int):
+        super().__init__(name, age)
+        self.id = id
+
     def talk(self):
         return f"ciao, mi chiamo {self.name}"
     
     #prende l'init della classe padre, quindi animal, anche se non lo riscrivo
     #talk però l'ho sovrascritta
+    #se voglio aggiungere attributi invece riscrivo l'init
 
 class Student(Person):
 
