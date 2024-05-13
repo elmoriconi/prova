@@ -17,5 +17,6 @@ class Group:
         if student not in self.students and self.get_limit_students() > 0:
             self.students.append(student)
             self.limit_students -= 1
+            student.group = self
             return True
         return False
