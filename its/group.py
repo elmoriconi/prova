@@ -12,3 +12,10 @@ class Group:
     
     def get_limit_students(self) -> int:
         return self.limit_students
+    
+    def add_student(self, student: Student):
+        if student not in self.students and self.get_limit_students() > 0:
+            self.students.append(student)
+            self.limit_students -= 1
+            return True
+        return False

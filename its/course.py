@@ -15,4 +15,4 @@ class Course:
         return self.building
     
     def __str__(self) -> str:
-        
+        pass
