@@ -28,3 +28,35 @@ class Zoo:
     def get_fences(self):
         return self.fences
     
+
+
+class Animal:
+
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
+
+    def set_name(self, new_name:str):
+        self.name = new_name
+        
+    def set_age(self, new_age: int):
+        self.age = new_age
+
+    def __str__(self) -> str:
+        return f"animal name: {self.name}, age: {self.age}"
+    
+    def talk(self):
+        return f"non so come si parla"
+    
+class Person(Animal):
+
+    def talk(self):
+        return f"ciao, mi chiamo {self.name}"
+    
+    #prende l'init della classe padre, quindi animal, anche se non lo riscrivo
+    #talk però l'ho sovrascritta
+
+class Student(Person):
+
+    def talk(self) -> str:
+        return f"ciao sono uno studente e mi chiamo {self.name}"
