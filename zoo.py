@@ -62,6 +62,7 @@ class Zoo:
                 self.habitat = habitat
                 self.health: float = 100 * (1/age)
                 self.area: float = self.height * self.width
+                self.fence = None
 
             def __str__(self) -> str:
                 return f"name = {self.name}, species = {self.species}, age = {self.age}"
@@ -71,26 +72,21 @@ class Zoo:
                 if animal.habitat == fence.habitat:
                     if fence.residual_area >= animal.height * animal.width:
                         fence.list_of_animals.append(animal)
-            elif animal in fence:
-                print("animal already in fence") #levare
-            else:
-                print("impossible to add animal") #levare
+                        animal.fence = fence
 
         def remove_animal(self, animal: Animal, fence: Fence):
             if animal in fence:
                 fence.remove(animal)
                 fence.residual_area += animal.width * animal.height
 
-        def feed(self, animal: Animal, fence: Fence): #levare fence: serve un riferimento ad essa ma tramite animal
+        def feed(self, animal: Animal): 
             increased_height: float = animal.height + ((2/100) * animal.height)
             increased_width: float = animal.width + ((2/100) * animal.width)
             animal_area_increase: int = animal.area - (increased_height * increased_width)
-            if animal_area_increase <= fence.residual_area:
+            if animal_area_increase <= animal.fence.residual_area:
                 animal.height = increased_height
                 animal.width = increased_width
-                fence.residual_area -= animal_area_increase
-            else:
-                print("Not enough space to feed animal") #levare
+                animal.fence.residual_area -= animal_area_increase
 
         def clean(self, fence: Fence):
             time: float = 0
