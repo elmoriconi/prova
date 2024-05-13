@@ -16,6 +16,11 @@ class Building:
             return True
         return False
 
+    def remove_room(self, room: Room):
+        if room in self.get_rooms():
+            self.rooms.remove(room)
+        #manca qualche cosa
+
     def set_name(self, name: str):
         self.name = name
 
