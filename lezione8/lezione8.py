@@ -61,7 +61,14 @@ class Person(Animal):
     #talk però l'ho sovrascritta
     #se voglio aggiungere attributi invece riscrivo l'init
 
+    def __add__(self, other):
+        return Person(name = self.name + other.name, age = self.age + other.age)
+    
+    def __eq__(self, other):
+        return self.name == other.name
+
 class Student(Person):
 
     def talk(self) -> str:
         return f"ciao sono uno studente e mi chiamo {self.name}"
+    
