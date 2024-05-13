@@ -23,3 +23,5 @@ class Room:
     def get_num_seats(self) -> int:
         return self.num_seats
     
+    def __str__(self) -> str:
+        return f"Stanza: {self.name}, piano: {self.floor}, posti: {self.num_seats}"
