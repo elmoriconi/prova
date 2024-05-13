@@ -19,3 +19,10 @@ class Student(Person):
             self.group.limit_students += 1
             return True
         return False
+    
+class Lecturer(Person):
+
+    def __init__(self, id: str, degree: str, cf: str, name: str, surname: str, age: int):
+        super().__init__(cf, name, surname, age)
+        self.id: str = id
+        self.degree: str = degree
