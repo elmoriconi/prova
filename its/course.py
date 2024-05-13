@@ -1,4 +1,5 @@
 from building import Building
+from group import Group
 
 class Course:
 
@@ -12,3 +13,6 @@ class Course:
     
     def get_building(self):
         return self.building
+    
+    def __str__(self) -> str:
+        
