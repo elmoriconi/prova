@@ -105,4 +105,3 @@ lorenzo = Zoo.ZooKeeper("Lorenzo", "Maggi", 1234)
 print(lorenzo)
 print(scoiattolo)
 print(prima)
-
