@@ -29,12 +29,28 @@
 
 class Zoo:
 
+    def __init__(self, fences, zoo_keepers):
+        self.fences = fences
+        self.zoo_keepers = zoo_keepers
+
+    def describe_zoo(self) -> str:
+        print("Zookepers:")
+        for zookeeper in self.zoo_keepers: 
+            print(f"ZooKeeper(name={zookeeper.name}, surname={zookeeper.surname}, id={zookeeper.id})")
+        print("Fences:")
+        for fence in self.fences:
+            print(f"Fence(area={fence.area}, temperature={fence.temperature}, habitat={fence.habitat})")
+            print("with animals:")
+            for animal in fence.animals:
+                print(f"Animal(name={animal.name}, species={animal.species}, age={animal.age})")
+            print("#" * 30)
+
     class ZooKeeper:
 
         def __init__(self, name: str, surname: str, id: int):
-            self.name = name
-            self.surname = surname
-            self.id = str(id)
+            self.name: str = name
+            self.surname: str = surname
+            self.id: str = str(id)
 
         def __str__(self) -> str:
             return f"name = {self.name}, surname = {self.surname}, id = {self.id}"
@@ -42,25 +58,25 @@ class Zoo:
         class Fence:
 
             def __init__(self, area: int, temperature: float, habitat: str):
-                self.area = area
-                self.temperature = temperature
-                self.habitat = habitat
+                self.area: int = area
+                self.temperature: float = temperature
+                self.habitat: str = habitat
                 self.list_of_animals: list[str] = []
-                self.residual_area = [self.area - (animal.width * animal.height) for animal in self.list_of_animals]
+                self.residual_area: float = area
 
             def __str__(self) -> str:
                 return f"area = {self.area}, temperature = {self.temperature}, habitat = {self.habitat}"
 
         class Animal:
 
-            def __init__(self, name: str, species: str, age: int, height: float, width: float, habitat: str):
-                self.name = name
-                self.species = species 
-                self.age = age
-                self.height = height
-                self.width = width
-                self.habitat = habitat
-                self.health: float = 100 * (1/age)
+            def __init__(self, name: str, species: str, age: int, height: float, width: float, preferred_habitat: str):
+                self.name: str = name
+                self.species: str = species 
+                self.age: int = age
+                self.height: float = height
+                self.width: float = width
+                self.habitat: str = preferred_habitat
+                self.health: float = round(100 * (1/age), 3)
                 self.area: float = self.height * self.width
                 self.fence = None
 
@@ -68,11 +84,11 @@ class Zoo:
                 return f"name = {self.name}, species = {self.species}, age = {self.age}"
 
         def add_animal(self, animal: Animal, fence: Fence):
-            if animal not in fence:
-                if animal.habitat == fence.habitat:
-                    if fence.residual_area >= animal.height * animal.width:
-                        fence.list_of_animals.append(animal)
-                        animal.fence = fence
+            if animal.habitat == fence.habitat:
+                if fence.residual_area >= animal.height * animal.width:
+                    fence.list_of_animals.append(animal)
+                    fence.residual_area -= (animal.width * animal.height)
+                    animal.fence = fence
 
         def remove_animal(self, animal: Animal, fence: Fence):
             if animal in fence:
@@ -94,14 +110,9 @@ class Zoo:
                 time = (fence.area - fence.residual_area) / fence.residual_area
             return time
 
-    @classmethod
-    def describe_zoo(cls):
-        
-        return f""
 
-scoiattolo = Zoo.ZooKeeper.Animal("Scoiattolo", "Blabla", 25, 15, 3, "Continent")
 prima = Zoo.ZooKeeper.Fence(100, 25, "Continent")
 lorenzo = Zoo.ZooKeeper("Lorenzo", "Maggi", 1234)
-print(lorenzo)
-print(scoiattolo)
-print(prima)
+scoiattolo = Zoo.ZooKeeper.Animal("Scoiattolo", "Blabla", 25, 15, 3, "Continent")
+
+lorenzo.add_animal(animal = scoiattolo, fence = prima)
