@@ -29,90 +29,90 @@
 
 class Zoo:
 
-    def __init__(self, fences, zoo_keepers):
-        self.fences = fences
-        self.zoo_keepers = zoo_keepers
+    def __init__(self):
+        self.fences = []
+        self.zoo_keepers = []
+
+    def add_fences(self, fence):
+        self.fences.append(fence)
+
+    def add_zookeepers(self, zookeper):
+        self.zoo_keepers.append(zookeper)
 
     def describe_zoo(self) -> str:
-        print("Zookepers:")
+        description: str = "Zookepers:\n"
         for zookeeper in self.zoo_keepers: 
-            print(f"ZooKeeper(name={zookeeper.name}, surname={zookeeper.surname}, id={zookeeper.id})")
-        print("Fences:")
+            description += f"ZooKeeper(name={zookeeper.name}, surname={zookeeper.surname}, id={zookeeper.id})\n"
+        description += "Fences:\n"
         for fence in self.fences:
-            print(f"Fence(area={fence.area}, temperature={fence.temperature}, habitat={fence.habitat})")
-            print("with animals:")
-            for animal in fence.animals:
-                print(f"Animal(name={animal.name}, species={animal.species}, age={animal.age})")
-            print("#" * 30)
+            description += f"Fence(area={fence.area}, temperature={fence.temperature}, habitat={fence.habitat})\n"
+            description += "with animals:\n"
+            for animal in fence.list_of_animals:
+                description += f"Animal(name={animal.name}, species={animal.species}, age={animal.age})\n"
+            description += "#" * 30 + "\n"
+        return description
 
-    class ZooKeeper:
+class Fence:
 
-        def __init__(self, name: str, surname: str, id: int):
-            self.name: str = name
-            self.surname: str = surname
-            self.id: str = str(id)
+    def __init__(self, area: int, temperature: float, habitat: str):
+        self.area: int = area
+        self.temperature: float = temperature
+        self.habitat: str = habitat
+        self.list_of_animals: list[str] = []
+        self.residual_area: float = area
 
-        def __str__(self) -> str:
-            return f"name = {self.name}, surname = {self.surname}, id = {self.id}"
+    def __str__(self) -> str:
+        return f"area = {self.area}, temperature = {self.temperature}, habitat = {self.habitat}"
 
-        class Fence:
+class Animal:
 
-            def __init__(self, area: int, temperature: float, habitat: str):
-                self.area: int = area
-                self.temperature: float = temperature
-                self.habitat: str = habitat
-                self.list_of_animals: list[str] = []
-                self.residual_area: float = area
+    def __init__(self, name: str, species: str, age: int, height: float, width: float, preferred_habitat: str):
+        self.name: str = name
+        self.species: str = species 
+        self.age: int = age
+        self.height: float = height
+        self.width: float = width
+        self.habitat: str = preferred_habitat
+        self.health: float = round(100 * (1/age), 3)
+        self.fence = None
 
-            def __str__(self) -> str:
-                return f"area = {self.area}, temperature = {self.temperature}, habitat = {self.habitat}"
+    def __str__(self) -> str:
+        return f"name = {self.name}, species = {self.species}, age = {self.age}"
 
-        class Animal:
+class ZooKeeper:
 
-            def __init__(self, name: str, species: str, age: int, height: float, width: float, preferred_habitat: str):
-                self.name: str = name
-                self.species: str = species 
-                self.age: int = age
-                self.height: float = height
-                self.width: float = width
-                self.habitat: str = preferred_habitat
-                self.health: float = round(100 * (1/age), 3)
-                self.area: float = self.height * self.width
-                self.fence = None
+    def __init__(self, name: str, surname: str, id: int):
+        self.name: str = name
+        self.surname: str = surname
+        self.id: int = id
 
-            def __str__(self) -> str:
-                return f"name = {self.name}, species = {self.species}, age = {self.age}"
+    def __str__(self) -> str:
+        return f"name = {self.name}, surname = {self.surname}, id = {self.id}"
+    
+    def add_animal(self, animal: Animal, fence: Fence):
+        if animal.habitat == fence.habitat:
+            if fence.residual_area >= animal.height * animal.width:
+                fence.list_of_animals.append(animal)
+                fence.residual_area -= animal.width * animal.height
+                animal.fence = fence
 
-        def add_animal(self, animal: Animal, fence: Fence):
-            if animal.habitat == fence.habitat:
-                if fence.residual_area >= animal.height * animal.width:
-                    fence.list_of_animals.append(animal)
-                    fence.residual_area -= (animal.width * animal.height)
-                    animal.fence = fence
+    def remove_animal(self, animal: Animal, fence: Fence):
+        if animal in fence.list_of_animals:
+            fence.remove(animal)
+            fence.residual_area += animal.width * animal.height
 
-        def remove_animal(self, animal: Animal, fence: Fence):
-            if animal in fence:
-                fence.remove(animal)
-                fence.residual_area += animal.width * animal.height
+    def feed(self, animal: Animal): 
+        increased_height: float = animal.height + ((2/100) * animal.height)
+        increased_width: float = animal.width + ((2/100) * animal.width)
+        new_area: int = increased_height * increased_width
+        if new_area <= animal.fence.residual_area:
+            animal.fence.residual_area -= (new_area - (animal.height * animal.width))
+            animal.height = increased_height
+            animal.width = increased_width
+            animal.health *= 1.01
 
-        def feed(self, animal: Animal): 
-            increased_height: float = animal.height + ((2/100) * animal.height)
-            increased_width: float = animal.width + ((2/100) * animal.width)
-            animal_area_increase: int = animal.area - (increased_height * increased_width)
-            if animal_area_increase <= animal.fence.residual_area:
-                animal.height = increased_height
-                animal.width = increased_width
-                animal.fence.residual_area -= animal_area_increase
-
-        def clean(self, fence: Fence):
-            time: float = 0
-            if fence.residual_area > 0:
-                time = (fence.area - fence.residual_area) / fence.residual_area
-            return time
-
-
-prima = Zoo.ZooKeeper.Fence(100, 25, "Continent")
-lorenzo = Zoo.ZooKeeper("Lorenzo", "Maggi", 1234)
-scoiattolo = Zoo.ZooKeeper.Animal("Scoiattolo", "Blabla", 25, 15, 3, "Continent")
-
-lorenzo.add_animal(animal = scoiattolo, fence = prima)
+    def clean(self, fence: Fence):
+        if fence.residual_area == 0:
+            return fence.area
+        else:
+            return (fence.area - fence.residual_area) / fence.residual_area
