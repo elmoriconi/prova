@@ -39,3 +39,6 @@ def bubble_sort3(x: list[int]):
                 x[j+1] = temp
         if not ho_fatto_swap:
             break
+
+
+#devo solo controllare una cosa su git
