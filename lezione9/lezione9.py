@@ -28,7 +28,7 @@ def bubble_sort2(x: list[int]):
 #terza versione
 
 
-def bubble_sort2(x: list[int]):
+def bubble_sort3(x: list[int]):
     ho_fatto_swap: bool = False
     for i in range(len(x)):
         for j in range(len(x) - i - 1):
