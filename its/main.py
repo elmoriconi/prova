@@ -20,7 +20,7 @@ print(f'Add = {add} --> {r2}')
 remove = b.remove_room(r)
 print(f'Remove = {remove} --> {r}')
 print("#" * 70)
-course = Course(name="Python", building=b)
+"""course = Course(name="Python", building=b)
 print(course)
 
 cloud = Group(name="cloud", limit_students=5)
@@ -46,4 +46,5 @@ fullstack.add_professor(flavio)
 fullstack.add_professor(marco)
 fullstack.add_professor(toni)
 
-print(course)
+print(course)"""
+
