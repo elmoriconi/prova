@@ -21,3 +21,21 @@ def bubble_sort2(x: list[int]):
                 temp: int = x[j]
                 x[j] = x[j+1]
                 x[j+1] = temp
+
+
+#se la lista è già ordinata fa comunque tutte le iterazioni. quindi bisogna modificare
+
+#terza versione
+
+
+def bubble_sort2(x: list[int]):
+    ho_fatto_swap: bool = False
+    for i in range(len(x)):
+        for j in range(len(x) - i - 1):
+            if x[j] > x[j+1]:
+                ho_fatto_swap = True
+                temp: int = x[j]
+                x[j] = x[j+1]
+                x[j+1] = temp
+        if not ho_fatto_swap:
+            break
