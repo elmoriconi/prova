@@ -56,7 +56,7 @@ class TreeNode:
         self.left = left
         self.right = right
         
-def symmetric(tree: list[int]) -> bool:
+"""def symmetric(tree: list[int]) -> bool:
     # scrivere qui la vostra funzione
     flag: bool = True
     i: int = tree[0]
@@ -69,10 +69,26 @@ def symmetric(tree: list[int]) -> bool:
             i += 1
         else:
             flag = False
-    return flag   
+    return flag"""   
 
 
+def symmetric(tree: list[int]) -> bool:
+    return are_mirrored(tree, 1, 2)
 
+def are_mirrored(tree: list[int], left_index: int, right_index: int):
+    if left_index >= len(tree) or right_index >= len(tree):
+        return left_index == right_index
+    if tree[left_index] != tree[right_index]:
+        return False
+    left_of_left = 2*left_index + 1
+    right_of_left = 2* (left_index + 1)
+    left_of_right = 2*right_index + 1
+    right_of_right = 2* (right_index + 1)
+    symmetric_extremes = are_mirrored(tree, left_of_left, right_of_right)
+    symmetric_inner = are_mirrored(tree, right_of_left, left_of_right)
+    return symmetric_extremes and symmetric_inner
+
+#no è tutto sbagliato non hai capito la consegna
 class TreeNode:
     
     def __init__(self, val=0, left=None, right=None):
@@ -93,5 +109,5 @@ class TreeNode:
 def symmetric(tree: list[int]) -> bool:
     # scrivere qui la vostra funzione
     for i in range(len(tree)):
-        node = TreeNode(tree[i], tree[i+1], tree[i+2])
+        node = TreeNode(tree[i], tree[2*i+1], tree[2*(i+1)])
         node.is_symmetric(node)
