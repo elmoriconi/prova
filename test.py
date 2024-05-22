@@ -82,9 +82,9 @@ class TreeNode:
         
     def is_symmetric(self):
         flag = True
-        if left and right:
+        if self.left and self.right:
             flag = True
-        elif not left and not right:
+        elif not self.left and not self.right:
             flag = True
         else:
             flag = False
