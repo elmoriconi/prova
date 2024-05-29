@@ -84,4 +84,3 @@ while lepre < 70 or tartaruga < 70:
         print("IT'S A TIE.")
     else: 
         print(visualizza_posizione(lepre, tartaruga))
-    
