@@ -1,8 +1,8 @@
 import random
 
-def visualizza_posizione(lepre, tartaruga):
-    quadrati: list[int] = []
-    for x in range(1, 71):
+def visualizza_posizione(lepre: int, tartaruga: int):
+    quadrati: list[None|str] = []
+    for _ in range(1, 71):
         quadrati.append("_")
     if lepre != tartaruga:
         quadrati[lepre] = "H"
@@ -11,7 +11,7 @@ def visualizza_posizione(lepre, tartaruga):
         quadrati[lepre] = "OUCH!!!"
     return(quadrati)
 
-def mosse_tartaruga(quadrati, x, pioggia, stamina):
+def mosse_tartaruga(quadrati: int, x: int, pioggia: bool, stamina: int):
     if 1 <= x <= 5 and stamina >= 5: # passo veloce
         quadrati += 3
         stamina -= 5
@@ -31,19 +31,19 @@ def mosse_tartaruga(quadrati, x, pioggia, stamina):
             quadrati -= 1
     return quadrati, stamina
 
-def mosse_lepre(quadrati, x, pioggia, stamina):
+def mosse_lepre(quadrati: int, x: int, pioggia: bool, stamina: int):
     if 1 <= x <= 2: # riposo
         if stamina == 100:
-            quadrati == quadrati
+            quadrati = quadrati
         else:
-            quadrati == quadrati
+            quadrati = quadrati
             stamina += 10
     elif 3 <= x <= 4 and stamina >= 15: #grande balzo
         quadrati += 9
         stamina -= 15
     elif x == 5 and stamina >= 20: # grande scivolata
         if quadrati <= 12:
-            quadrati == 1
+            quadrati = 1
         else:
             quadrati -= 12
         stamina -= 20
@@ -62,12 +62,12 @@ def mosse_lepre(quadrati, x, pioggia, stamina):
 
 
 print("BANG !!!!! AND THEY'RE OFF !!!!!")
-lepre = 1
-tartaruga = 1
+lepre: int = 1
+tartaruga: int = 1
 pioggia: bool = False
-secondi = 0
-stamina_lepre = 100
-stamina_tartaruga = 100
+secondi: int = 0
+stamina_lepre: int = 100
+stamina_tartaruga: int = 100
 while lepre < 70 or tartaruga < 70:
     secondi += 1
     if secondi % 10 == 0:
