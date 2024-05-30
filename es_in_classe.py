@@ -133,7 +133,7 @@ class Member:
             self.borrowed_books.append(book)
     
     def return_book(self, book):
-        self.borrowed.books.remove(book)
+        self.borrowed_books.remove(book)
 
 class Book:
     
