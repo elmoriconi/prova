@@ -1,4 +1,3 @@
-"""
 with open("file_di_prova.txt") as file:
     pass
 
@@ -7,8 +6,8 @@ try:
     pass
 finally:
     file.close()
-"""
 
+"""
 #context manager
 
 class ContextManager:           #open() funziona in modo simile a questo context manager, con un enter ed un exit
@@ -26,3 +25,4 @@ class ContextManager:           #open() funziona in modo simile a questo context
 with ContextManager() as manager:
 
     print("Sono dentro with")
+"""
