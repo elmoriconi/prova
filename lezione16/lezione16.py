@@ -74,10 +74,12 @@ class Media:
         return percentage
 
     def recensione(self):
-        testo: str = f"Titolo del Film: {self.title} \n Voto Medio: {self.getMedia()} \n"
+        recensioni: list[str] = ["Zero", "Terribile", "Brutto", "Normale", "Bello", "Grandioso"]
+        testo: str = f"Titolo del Film: {self.title} \n" 
+        testo += f"Voto Medio: {self.getMedia()} \n"
         testo += f"Giudizio: {self.getRate()} \n"
-        for elem in self.reviews:
-            testo += f"{self.ratePercentage(elem)} \n"
+        for elem in range(1, 6):
+            testo += f"{recensioni[elem]}: {self.ratePercentage(elem)}% \n"
         return testo 
 
     def __str__(self) -> str:
@@ -90,7 +92,16 @@ class Film(Media):
 
 media1: Media = Media()
 media1.set_title("Lo Squalo")
-print(media1.get_title)
-"""
-film1: Film = Film()
-"""
+print(media1.get_title())
+media1.aggiungiValutazione(5)
+media1.aggiungiValutazione(1)
+media1.aggiungiValutazione(3)
+media1.aggiungiValutazione(5)
+media1.aggiungiValutazione(4)
+media1.aggiungiValutazione(3)
+media1.aggiungiValutazione(4)
+media1.aggiungiValutazione(3)
+print(media1.getMedia())
+print(media1.ratePercentage(5))
+print(media1.recensione())
+
