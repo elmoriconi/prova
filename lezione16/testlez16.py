@@ -31,22 +31,26 @@ class RecipeManager:
         self.ricette: dict[str, list[str]] = {}
         
     def create_recipe(self, name: str, ingredients: list[str]):
+        flag = 0
         for key, value in self.ricette.items():
-            if name not in self.ricette.items():
-                self.ricette.key = name
-                self.ricette.value = ingredients
+            if key == name:
+               flag == 1
             else:
-                print("Ricetta già esistente")
+                pass 
+        if flag == 0:
+            self.ricette.update({name: ingredients})
+        else:
+            print("Ricetta già esistente")
         return self.ricette
     
     def add_ingredient(self, recipe_name: str, ingredient: str):
         for key, value in self.ricette.items():
-            if recipe_name in self.ricette.items():
+            if recipe_name == key:
                 if ingredient not in self.ricette[recipe_name]:
                     lista_ingredienti = self.ricette[recipe_name]
                     self.ricette[recipe_name].append(ingredient)
-                    self.ricette.update({"recipe_name: lista_ingredienti"})
-                    return self.ricette[recipe_name]
+                    self.ricette.update({recipe_name: lista_ingredienti})
+                    return self.ricette
                 else:
                     print("Ingrediente già presente")
             else:
@@ -54,12 +58,12 @@ class RecipeManager:
     
     def remove_ingredient(self, recipe_name: str, ingredient: str):
         for key, value in self.ricette.items():
-            if recipe_name in self.ricette.items():
+            if recipe_name == key:
                 if ingredient in self.ricette[recipe_name]:
                     lista_ingredienti = self.ricette[recipe_name]
                     self.ricette[recipe_name].remove(ingredient)
-                    self.ricette.update({"recipe_name: lista_ingredienti"})
-                    return self.ricette[recipe_name]
+                    self.ricette.update({recipe_name: lista_ingredienti})
+                    return self.ricette
                 else:
                     print("Ingrediente non presente")
             else:
@@ -67,17 +71,17 @@ class RecipeManager:
             
     def update_ingredient(self, recipe_name: str, old_ingredient: str, new_ingredient: str):
         for key, value in self.ricette.items():
-            if recipe_name in self.ricette.items():
+            if recipe_name == key:
                 if old_ingredient in self.ricette[recipe_name]:
-                    lista_ingredienti = self.ricette[recipe_name]
-                    #.replace(old_ingredient, new_ingredient)
-                    self.ricette.update({"recipe_name: lista_ingredienti"})
-                    return self.ricette[recipe_name]
+                    stringa_ingredienti = str(value)
+                    stringa_ingredienti.replace(old_ingredient, new_ingredient)
+                    self.ricette.update({recipe_name: stringa_ingredienti})
                 else:
                     print("Ingrediente non presente")
             else:
                 print("Ricetta non esistente")
-                
+        return self.ricette
+
     def list_recipes(self):
         lista_chiavi: list[str] = []
         for key, value in self.ricette.items():
@@ -99,7 +103,7 @@ class RecipeManager:
 
 manager = RecipeManager()
 print(manager.create_recipe("Pizza Margherita", ["Farina", "Acqua", "Lievito", "Pomodoro", "Mozzarella"]))
-#print(manager.add_ingredient("Pizza Margherita", "Basilico"))
-#print(manager.update_ingredient("Pizza Margherita", "Mozzarella", "Mozzarella di Bufala"))
+print(manager.add_ingredient("Pizza Margherita", "Basilico"))
+print(manager.update_ingredient("Pizza Margherita", "Mozzarella", "Mozzarella di Bufala"))
 #print(manager.remove_ingredient("Pizza Margherita", "Acqua"))
 #print(manager.list_ingredients("Pizza Margherita"))
