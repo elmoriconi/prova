@@ -123,25 +123,27 @@ class Specie:
         self.nome = None
         self.popolazione = popolazione
         self.tasso_crescita = tasso_crescita
-        self.popolazione_nuova = self.cresci()
 
     def cresci(self):
-        self.popolazione = round(self.popolazione * (1 + self.tasso_crescita/100), 0)
-    
-    def anni_per_superare(self, altra_specie):
+        self.popolazione = self.popolazione * (1 + self.tasso_crescita/100)
+        return self.popolazione
+
+    def anni_per_superare(self, altra_specie: 'Specie'):
         anni = 0 
-        pop_elef = self.popolazione
-        pop_buf = altra_specie.popolazione
-        while pop_elef < pop_buf:
+        while self.popolazione < altra_specie.popolazione:
             anni += 1
-            pop_elef = self.cresci()
-            pop_buf = altra_specie.cresci()
+            self.cresci()
+            altra_specie.cresci()
+            if anni > 1000:
+                return "Error"
         return anni
 
-    def getDensità(self, area_kmq):
-        densità = 0
-        while densità != 9:#numero a caso
-            densità = self.popolazione / area_kmq
+    def getDensita(self, area_kmq):
+        anni = 0
+        while self.popolazione / area_kmq < 1:
+            self.cresci()
+            anni += 1
+        return anni
 
 class BufaloKlingon(Specie):
     
@@ -154,8 +156,6 @@ class Elefante(Specie):
     def __init__(self, popolazione: int, tasso_crescita: float) -> None:
         super().__init__(popolazione, tasso_crescita)
         self.name = "Elefante"
-
-
 
 
 

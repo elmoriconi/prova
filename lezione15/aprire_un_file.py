@@ -43,3 +43,5 @@ finally:
     print(reader)
     reader.close()
     print("Sono nella finally")
+
+
