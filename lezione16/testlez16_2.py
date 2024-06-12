@@ -113,34 +113,47 @@ Formule Matematiche:
         Formula: popolazione / area_kmq
         Hint: Loop incrementale che continua ad aggiornare la popolazione finché la densità non raggiunge 1 individuo per km²
     Calcolo degli anni necessari per superare la popolazione di un'altra specie:
-        Hint: Loop incrementale che continua ad aggiornare la popolazione di entrambe le specie finché la popolazione di questa specie non supera quella dell'altra. Per evitare che le popolazioni crescano all'infinito, limitare il numero di anni a 1000. 
+        Hint: Loop incrementale che continua ad aggiornare la popolazione di entrambe le specie finché la popolazione di questa specie non supera quella dell'altra. 
+        Per evitare che le popolazioni crescano all'infinito, limitare il numero di anni a 1000. 
 
 """
 class Specie:
 
-    def __init__(self, nome: str, popolazione: int, tasso_crescita: float) -> None:
-        self.nome = nome
+    def __init__(self, popolazione: int, tasso_crescita: float) -> None:
+        self.nome = None
         self.popolazione = popolazione
         self.tasso_crescita = tasso_crescita
+        self.popolazione_nuova = self.cresci()
 
     def cresci(self):
-        pass
+        self.popolazione = round(self.popolazione * (1 + self.tasso_crescita/100), 0)
     
-    def anni_per_superare(self):
-        pass
+    def anni_per_superare(self, altra_specie):
+        anni = 0 
+        pop_elef = self.popolazione
+        pop_buf = altra_specie.popolazione
+        while pop_elef < pop_buf:
+            anni += 1
+            pop_elef = self.cresci()
+            pop_buf = altra_specie.cresci()
+        return anni
 
-    def getDensità(self):
-        pass
+    def getDensità(self, area_kmq):
+        densità = 0
+        while densità != 9:#numero a caso
+            densità = self.popolazione / area_kmq
 
 class BufaloKlingon(Specie):
     
-    def __init__(self, nome: str, popolazione: int, tasso_crescita: float) -> None:
-        super().__init__(nome, popolazione, tasso_crescita)
+    def __init__(self, popolazione: int, tasso_crescita: float) -> None:
+        super().__init__(popolazione, tasso_crescita)
+        self.name = "Bufalo Klingon"
 
 class Elefante(Specie):
 
-    def __init__(self, nome: str, popolazione: int, tasso_crescita: float) -> None:
-        super().__init__(nome, popolazione, tasso_crescita)
+    def __init__(self, popolazione: int, tasso_crescita: float) -> None:
+        super().__init__(popolazione, tasso_crescita)
+        self.name = "Elefante"
 
 
 
@@ -156,5 +169,5 @@ anni_necessari = elefante.anni_per_superare(bufalo_klingon)  # Calcola gli anni 
 print(f"Anni necessari perché la popolazione di elefanti superi quella dei bufali Klingon: {anni_necessari}")
 
 # Calcolo della densità di popolazione per i Bufali Klingon
-anni_densita = bufalo_klingon.getDensita(1500)  # Calcola gli anni necessari per raggiungere una densità di 1 bufalo Klingon per km²
-print(f"Anni necessari per raggiungere una densità di 1 Bufalo Klingon per km quadrato: {anni_densita}")
+#anni_densita = bufalo_klingon.getDensita(1500)  # Calcola gli anni necessari per raggiungere una densità di 1 bufalo Klingon per km²
+#print(f"Anni necessari per raggiungere una densità di 1 Bufalo Klingon per km quadrato: {anni_densita}")

@@ -59,23 +59,22 @@ class RecipeManager:
     def remove_ingredient(self, recipe_name: str, ingredient: str):
         for key, value in self.ricette.items():
             if recipe_name == key:
-                if ingredient in self.ricette[recipe_name]:
-                    #lista_ingredienti = list(self.ricette[recipe_name])
-                    self.ricette[recipe_name].remove(ingredient)
-                    #self.ricette.update({recipe_name: lista_ingredienti})
-                else:
-                    print("Ingrediente non presente")
-            else:
-                print("Ricetta non esistente")
+                lista_ingredienti = list(self.ricette[recipe_name])
+                if ingredient in lista_ingredienti:
+                    x = lista_ingredienti.index(ingredient)
+                    lista_ingredienti.pop(x)
+                    self.ricette.update({recipe_name: lista_ingredienti})
         return self.ricette
             
     def update_ingredient(self, recipe_name: str, old_ingredient: str, new_ingredient: str):
         for key, value in self.ricette.items():
             if recipe_name == key:
                 if old_ingredient in self.ricette[recipe_name]:
-                    stringa_ingredienti = str(value)
-                    stringa_ingredienti.replace(old_ingredient, new_ingredient)
-                    self.ricette.update({recipe_name: stringa_ingredienti})
+                    lista_ingredienti = value
+                    x = lista_ingredienti.index(old_ingredient)
+                    lista_ingredienti.remove(old_ingredient)
+                    lista_ingredienti.insert(x, new_ingredient)
+                    self.ricette.update({recipe_name: lista_ingredienti})
                 else:
                     print("Ingrediente non presente")
             else:

@@ -1,11 +1,11 @@
-with open("file_di_prova.txt") as file:
-    pass
+#with open("file_di_prova.txt") as file:
+#    pass
 
-file = open("file_di_prova.txt")
-try:
-    pass
-finally:
-    file.close()
+#file = open("file_di_prova.txt")
+#try:
+#   pass
+#finally:
+#    file.close()
 
 """
 #context manager
@@ -26,3 +26,20 @@ with ContextManager() as manager:
 
     print("Sono dentro with")
 """
+
+reader = open("file_di_prova.txt")
+#print(reader)
+#reader.close()
+
+try:
+    reader.readline()
+    print("Sono nella try")
+    raise Exception("Eccezione!")
+
+except Exception:
+    print("Sono nella except")
+
+finally:
+    print(reader)
+    reader.close()
+    print("Sono nella finally")
