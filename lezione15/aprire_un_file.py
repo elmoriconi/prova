@@ -45,3 +45,18 @@ finally:
     print("Sono nella finally")
 
 
+"""with open("file_di_prova.txt") as reader:           #come leggere il file line by line
+    
+    line = reader.readline()
+
+    while line != "":
+        print(line)
+        line = reader.readline()"""
+
+with open("file_di_prova.txt") as reader:         
+    
+    line = reader.readline()
+
+    while line != "":
+        print(line)
+        line = reader.readline()
