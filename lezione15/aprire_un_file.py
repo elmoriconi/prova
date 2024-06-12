@@ -53,10 +53,26 @@ finally:
         print(line)
         line = reader.readline()"""
 
-with open("file_di_prova.txt") as reader:         
+with open("file_di_prova.txt", "r") as reader:         
     
     line = reader.readline()
 
     while line != "":
         print(line)
         line = reader.readline()
+
+
+with open("file_di_prova.txt", "w") as reader: 
+    l = [f"Ciao sono Flavio\n", "Ciao sono Maria\n", "Ciao sono Luca\n"]
+    reader.writelines(l)
+
+with open("file_di_prova.txt", "a") as reader:  #fa append
+    l = [f"Ciao sono Flavio\n", "Ciao sono Maria\n", "Ciao sono Luca\n"]
+    reader.writelines(l)
+
+
+try:
+    
+except:
+
+else: 
