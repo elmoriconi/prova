@@ -41,15 +41,15 @@ class Fattura:
         return self.doctor.getParcel() * self.fatture
     
     def getFatture(self):
-        pass
+        self.fatture = len(self.patient)
 
     def addPatient(self, paziente: Paziente):
         self.patient.append(paziente)
-        self.fatture += 1
+        self.getFatture()
         return f"Alla lista del dottor {self.doctor.getLastName()} è stato aggiunto il paziente {paziente.getIdCode()}"
     
     def removePatient(self, codice: str):
         paziente = self.patient.get(codice)
         self.patient.remove(paziente)
-        self.fatture -= 1
+        self.getFatture()
         return f"Alla lista del Dottor {self.doctor.getLastName()} è stato rimosso il paziente {codice}"
