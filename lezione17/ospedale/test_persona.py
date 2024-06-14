@@ -36,7 +36,6 @@ class TestPersona(unittest.TestCase):
 
 
   """def testSetName(self, nome: str):
-      
       self.setName(nome)
       self.getName()
   """ 

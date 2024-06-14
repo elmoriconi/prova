@@ -122,3 +122,4 @@ print(paziente1.getName())
 print(paziente2.getLastName())
 print(paziente3.getIdCode())
 print(paziente3.patientInfo())
+
