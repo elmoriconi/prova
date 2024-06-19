@@ -50,3 +50,4 @@ if __name__ == "__main__":
     list_input: list[int] = [random.randint(0, 100000) for _ in range(10000)]
     
     result: list[int] = mergeSort(list_input=list_input)
+    print(result)
