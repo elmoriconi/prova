@@ -43,11 +43,44 @@ def merge(list_1: list[int], list_2: list[int]) -> list[int]:
                 return result[:k+1] + list_2[j:]
 
 
+def bubble_sort_v2(x: list[int]):
+    # Ω(n) -> caso migliore quando la lista è già ordinata
+    # O(n^2) -> caso peggiore
+    ho_fatto_swap: bool = True
+    for i in range(len(x)):
+        for j in range(len(x) - i - 1):
+            if x[j] > x[j+1]:
+                # swap(x[j], x[j+1])
+                ho_fatto_swap = False
+                temp: int = x[j]
+                x[j] = x[j+1]
+                x[j+1] = temp
+        if ho_fatto_swap:
+            break
+
 if __name__ == "__main__":
     
     import random
-    
-    list_input: list[int] = [random.randint(0, 100000) for _ in range(10000)]
-    
-    result: list[int] = mergeSort(list_input=list_input)
-    print(result)
+    import time
+    import matplotlib.pyplot as plt
+
+    merge_sort_times = []
+    bubble_sort_times = []
+    cases = [10, 50, 100, 250, 500, 1000, 1500, 2000, 5000, 10000, 100000]
+    for n in cases:
+
+        list_input: list[int] = [random.randint(0, 100000) for _ in range(n)]
+        start = time.time()
+        result: list[int] = mergeSort(list_input=list_input)
+        end = time.time()
+        merge_sort_times.append(end-start)
+
+        start = time.time()
+        result2 = bubble_sort_v2(list_input)
+        end = time.time()
+        bubble_sort_times.append(end-start)
+
+    print(f"Merge: {merge_sort_times}, Bubble: {bubble_sort_times}")
+    plt.plot(cases, merge_sort_times)
+    plt.plot(cases, bubble_sort_times)
+    plt.show()
