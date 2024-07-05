@@ -23,26 +23,6 @@ Si ridefinisca il metodo getText() che concateni e ritorni il nome del percorso 
 Percorso: nomePercorso/document.txt
 Contenuto: Questo e' il contenuto del file.
 
-### Test tramite codice driver:
-Creazione degli oggetti:
-
-    Email: Viene creato un oggetto Email con mittente, destinatario, oggetto e corpo del messaggio.
-    File: Viene creato un oggetto File specificando il percorso di un file esistente.
-
-Prova dei metodi:
-
-    Stampa del testo dell'email: Viene stampato il testo del messaggio dell'email utilizzando il metodo getText().
-    Stampa del testo del file: Viene stampato il contenuto del file utilizzando il metodo getText().
-
-Scrittura del contenuto dell'email su un file:
-
-    Scrittura su file: Il contenuto dell'email viene scritto su un nuovo file chiamato email1.txt utilizzando il metodo writeToFile().
-
-Verifica della presenza di parole chiave:
-
-    Email: Utilizzo del metodo isInText() per verificare se la parola 'incontrarci' è presente nel testo dell'email. Il risultato atteso è True.
-    File: Utilizzo del metodo isInText() per verificare se la parola 'percorso' è presente nel testo del file. Il risultato atteso è False.
-
 ### Test con UnitTest
 
 Utilizzando il modulo unittest, definire i seguenti test per le classi Documento, Email e File.
@@ -81,7 +61,7 @@ class Documento:
 class Email(Documento):
 
     def __init__(self, testo: str, mittente: str, destinatario: str, titolo: str) -> None:
-        super().__init__(testo)
+        self.testo: str = self.writeToFile(testo)
         self.mittente: str = mittente
         self.destinatario: str = destinatario
         self.titolo: str = titolo
@@ -105,29 +85,61 @@ class Email(Documento):
         self.titolo = titolo
 
     def getText(self) -> str:
-        return f"Da: {self.getMittente()}, A: {self.getDestinatario()} \nTitolo: {self.getTitolo()} \nMessaggio: {self.getText()}"
+        return f"Da: {self.getMittente()}, A: {self.getDestinatario()} \nTitolo: {self.getTitolo()} \nMessaggio: {self.testo()}"
     
     def writeToFile(self, directory) -> None:
         with open(directory, "a") as reader: 
-            testo2 = self.getText()
-            reader.write(testo2)
+            testo = self.getText()
+            reader.write(testo)
 
 class File(Documento):
 
     def __init__(self, testo: str, nomePercorso: str) -> None:
         super().__init__(testo)
-        self.nomePercorso: str = nomePercorso
-        self.directory = self.createDirectory(nomePercorso)
+        self.nomePercorso = nomePercorso
+        self.createDirectory(nomePercorso)
 
-    def createDirectory(self, nomePercorso: str):
-        os.mkdir(nomePercorso)
-        self.createFile(nomePercorso)
+    def createDirectory(self, nomePercorso: str) -> None:
+        if not os.path.isdir(nomePercorso):
+            os.mkdir(nomePercorso)
+            self.createFile(nomePercorso)
+        else:
+            print("Directory already exists")
 
     def createFile(self, nomePercorso: str) -> str:
         with open(f"{nomePercorso}/document.txt", "a") as reader:
-            testo = "Questo e' il contenuto del file: \n"
-            reader.write(testo)
+            reader.write(self.testo)
         return "document.txt"
     
+    def leggiTestoDaFile(self) -> None:
+        with open(f"{self.nomePercorso}/document.txt", "r") as reader:
+            self.testo = reader.read()
 
-giorgio: File = File("Ciao Giorgio, come stai?", "esempiomdycr4f")
+    def getText(self) -> str:
+        f"Percorso: {self.nomePercorso}/document.txt \nContenuto: {self.testo}"
+
+"""### Test tramite codice driver:
+Creazione degli oggetti:
+
+    Email: Viene creato un oggetto Email con mittente, destinatario, oggetto e corpo del messaggio.
+    File: Viene creato un oggetto File specificando il percorso di un file esistente.
+
+Prova dei metodi:
+
+    Stampa del testo dell'email: Viene stampato il testo del messaggio dell'email utilizzando il metodo getText().
+    Stampa del testo del file: Viene stampato il contenuto del file utilizzando il metodo getText().
+
+Scrittura del contenuto dell'email su un file:
+
+    Scrittura su file: Il contenuto dell'email viene scritto su un nuovo file chiamato email1.txt utilizzando il metodo writeToFile().
+
+Verifica della presenza di parole chiave:
+
+    Email: Utilizzo del metodo isInText() per verificare se la parola 'incontrarci' è presente nel testo dell'email. Il risultato atteso è True.
+    File: Utilizzo del metodo isInText() per verificare se la parola 'percorso' è presente nel testo del file. Il risultato atteso è False.
+"""
+
+email: Email = Email("Ciao Bob, possiamo incontrarci domani?", "alice@example.com", "bob@example.com", "Incontro")
+file: File = File("Questo è il contenuto del file: \n", "esempiomdycr4f")
+print(email.getText())
+print(file.getText())
