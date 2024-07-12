@@ -31,13 +31,15 @@ from abc import ABC, abstractmethod
 
 class CodificatoreMessaggio(ABC):
 
+    @abstractmethod
     def codifica(testoInChiaro: str) -> str:
-        pass
+        return
 
 class DecodificatoreMessaggio(ABC):
 
+    @abstractmethod
     def decodifica(testoCodificato: str) -> str:
-        pass
+        return
 
 class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
 
