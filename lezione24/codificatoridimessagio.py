@@ -33,13 +33,13 @@ class CodificatoreMessaggio(ABC):
 
     @abstractmethod
     def codifica(testoInChiaro: str) -> str:
-        return
+        pass
 
 class DecodificatoreMessaggio(ABC):
 
     @abstractmethod
     def decodifica(testoCodificato: str) -> str:
-        return
+        pass
 
 class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
 
