@@ -243,14 +243,59 @@ def check_combination(conditionA: bool, conditionB: bool, conditionC: bool) -> s
 
 def frequency_dict(elements: list) -> dict:
     dizionario = {}
-    key = list(dizionario.keys())
     for elem in elements:
-        if elem not in key:
-            dizionario.update({elem: 1})
+        key = list(dizionario.keys())
+        if elem in key:
+            dizionario[elem] += 1
         else:
-            for key, value in dizionario.items():
-                if elem == key:
-                    dizionario.update({key: value + 1})
+            dizionario[elem] = 1
     return dizionario
 
 print(frequency_dict(['mela', 'banana', 'mela']))
+
+class Veicolo:
+
+    def __init__(self, marca: str, modello: str, anno: int) -> None:
+        self.marca = marca
+        self.modello = modello
+        self.anno = anno
+
+    def descrivi_veicolo(self):
+        return f"Marca {self.marca}, Modello: {self.modello}, Anno: {self.anno}"
+    
+class Auto(Veicolo):
+
+    def __init__(self, marca: str, modello: str, anno: int, numero_porte: int) -> None:
+        super().__init__(marca, modello, anno)
+        self.numero_porte = numero_porte
+
+    def descrivi_veicolo(self):
+        return f"Marca {self.marca}, Modello: {self.modello}, Anno: {self.anno}, Numero di porte: {self.numero_porte}"
+
+class Moto(Veicolo):
+
+    def __init__(self, marca: str, modello: str, anno: int, tipo: str) -> None:
+        super().__init__(marca, modello, anno)
+        self.tipo = tipo
+
+    def descrivi_veicolo(self):
+        return f"Marca {self.marca}, Modello: {self.modello}, Anno: {self.anno}, Tipo: {self.tipo}"
+
+
+def lista_a_dizionario(tuples: tuple) -> dict[str:list[int]]:
+    dizionario = {}
+    for elem in tuples:
+        if elem[0] not in dizionario.keys():
+            lista = []
+            lista.append(elem[1]) 
+            dizionario.update({elem[0]: lista})
+        else: 
+            lista = dizionario[elem[0]]
+            lista.append(elem[1])
+            dizionario[elem[0]] = lista
+    return dizionario
+
+
+print(lista_a_dizionario([('a', 1), ('b', 2), ('a', 3)]))
+
+
