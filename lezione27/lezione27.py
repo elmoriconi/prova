@@ -299,3 +299,59 @@ def lista_a_dizionario(tuples: tuple) -> dict[str:list[int]]:
 print(lista_a_dizionario([('a', 1), ('b', 2), ('a', 3)]))
 
 
+def merge_dictionaries(dict1: dict, dict2: dict) -> dict:
+    dizionario = {}
+    for key, value in dict1.items():
+        if key in dizionario.keys():
+            value + dizionario[key]
+        else:
+            dizionario.update({key: value})
+    for key, value in dict2.items():
+        if key in dizionario.keys():
+            value + dizionario[key]
+        else:
+            dizionario.update({key: value})
+    return dizionario
+
+
+def filtra_e_mappa(prodotti: dict[str:float]) -> dict[str:float]:
+    dizionario = {}
+    for key, value in prodotti.items():
+        if value > 20:
+            new_value = value - (value / 100 * 10)
+            dizionario.update({key: new_value})
+        else:
+            pass
+    return dizionario
+
+
+print(filtra_e_mappa({'Penna': 15.0, 'Zaino': 50.0, 'Quaderno': 22.0}))
+
+class Account:
+
+    def __init__(self, account_id: str) -> None:
+        self.account_id = account_id
+        self.balance = 0
+
+    def deposit(self, amount: float):
+        self.balance += amount
+
+    def get_balance(self):
+        return self.balance
+
+class Bank:
+            
+    def __init__(self) -> None:
+        self.accounts = {}
+
+    def create_account(self, account_id: str):
+        new_account = Account(account_id)
+        self.accounts.update({account_id: new_account})
+        return new_account
+
+    def deposit(self, account_id: str, amount: float):
+        self.accounts[account_id].deposit(amount)
+
+    def get_balance(self, account_id: str):
+        return self.accounts[account_id].get_balance()
+            
